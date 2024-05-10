@@ -1,13 +1,39 @@
 package albertojunior.setor0.app.noticias.ui.dashboard
 
+import albertojunior.setor0.app.noticias.model.news.News
+import albertojunior.setor0.app.noticias.ui.news.NewsRepository
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class DashboardViewModel : ViewModel() {
+@HiltViewModel
+class DashboardViewModel @Inject constructor(
+    private val repository: NewsRepository,
+) : ViewModel() {
+    private val _items = MutableLiveData<List<News>>()
+    val items: LiveData<List<News>> = _items
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is dashboard Fragment"
+    fun getItems() {
+        viewModelScope.launch {
+            _items.value = repository.getAllNews()
+        }
     }
-    val text: LiveData<String> = _text
+
+    fun getItems(district: String? = null) {
+        viewModelScope.launch {
+            if (district.isNullOrBlank()) {
+                getItems()
+            } else {
+                _items.value = repository.getNews(district)
+            }
+        }
+    }
+
+    fun onItemClicked(item: News) {
+
+    }
 }

@@ -9,6 +9,7 @@ Este aplicativo serve para criar notícias em um mundo distópico para o jogo de
 
 As notícias são criadas a partir do ponto de vista de um "jornalista" habitante do Setor 0, de modo informal e coloquial.
 
+## Configuração
 Por se tratar de um mundo devastado, as configurações de segurança foram reduzidas ou praticamente zeradas, mas podem ser configuradas no seguinte trecho:
 ```kotlin
 private val safetySettingsNoneSafety = listOf(

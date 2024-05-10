@@ -1,6 +1,6 @@
-package albertojunior.setor0.app.noticias.ui.home
+package albertojunior.setor0.app.noticias.ui.information
 
-import albertojunior.setor0.app.noticias.databinding.FragmentHomeBinding
+import albertojunior.setor0.app.noticias.databinding.FragmentInformationBinding
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,25 +10,22 @@ import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeFragment : Fragment() {
-    private lateinit var _binding: FragmentHomeBinding
-    private val viewModel: HomeViewModel by viewModels()
+class InformationFragment : Fragment() {
+    private val viewModel: InformationViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false).also {
+        return FragmentInformationBinding.inflate(inflater, container, false).also {
             it.lifecycleOwner = viewLifecycleOwner
             it.viewModel = viewModel
-        }
-        return _binding.root
+        }.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.generateWelcomeText()
     }
 
 }

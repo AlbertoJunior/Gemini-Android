@@ -1,7 +1,7 @@
 package albertojunior.setor0.app.noticias.model.prompter
 
 import albertojunior.setor0.app.noticias.model.District
-import albertojunior.setor0.app.noticias.model.News
+import albertojunior.setor0.app.noticias.model.news.News
 
 class PromptDistrictNews(
     private val district: District,

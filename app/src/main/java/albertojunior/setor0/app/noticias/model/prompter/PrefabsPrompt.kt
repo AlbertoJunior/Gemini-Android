@@ -1,6 +1,6 @@
 package albertojunior.setor0.app.noticias.model.prompter
 
-import albertojunior.setor0.app.noticias.model.NewsDTO
+import albertojunior.setor0.app.noticias.model.news.NewsDTO
 import com.google.gson.Gson
 
 object PrefabsPrompt {
@@ -37,10 +37,4 @@ object PrefabsPrompt {
     val PREFAB_CHANNEL_OLD_NEWS_PROMPT =
         "$PREFAB_CHANNEL_PROMPT " +
                 "As informações sobre a última notícia: %s."
-
-    const val PREFAB_GET_CORE_INFO =
-        "Separe as principais informações da notícia a seguir, de forma concisa, " +
-                "sinalizando Quem causou, O que causou, Como causou e Consequências. " +
-                "Não formate o texto. " +
-                "Não use mais que 200 palavras.:\n"
 }

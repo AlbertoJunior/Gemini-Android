@@ -11,7 +11,6 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class NewsFragment : Fragment() {
-
     private val viewModel: NewsViewModel by viewModels()
 
     override fun onCreateView(

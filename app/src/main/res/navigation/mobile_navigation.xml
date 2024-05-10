@@ -15,11 +15,21 @@
         android:id="@+id/navigation_dashboard"
         android:name="albertojunior.setor0.app.noticias.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard">
+        <action
+            android:id="@+id/action_navigation_dashboard_to_informationFragment"
+            app:destination="@id/informationFragment" />
+    </fragment>
 
     <fragment
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_news"
         android:name="albertojunior.setor0.app.noticias.ui.news.NewsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_news" />
+
+    <fragment
+        android:id="@+id/informationFragment"
+        android:name="albertojunior.setor0.app.noticias.ui.information.InformationFragment"
+        android:label="InformationFragment"
+        tools:layout="@layout/fragment_information" />
 </navigation>

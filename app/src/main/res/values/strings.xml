@@ -3,6 +3,30 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Salvas</string>
     <string name="title_notifications">Notícias</string>
+
+    <!-- HOME -->
+    <string name="home_body">Este aplicativo é uma ferramenta para criação de textos fictícios para o RPG de mesa <b>Setor 0 - O Submundo</b> e todos os textos apresentados aqui não devem ser utilizados em qualquer outro contexto que não seja de jogo.</string>
+    <string name="home_error">(Infelizmente ocorreu um erro ao tentar gerar o texto com o <b>Gemini IA</b>)</string>
+    <string name="home_welcome_message">— %1$s (Texto gerado por <b>Gemini IA</b>)</string>
+
+    <!-- NEWS -->
+    <string name="news_channel">Canal %1$d: %2$s</string>
+    <string name="news_empty">Sem notícias</string>
+    <string name="news_text_copied">Notícia copiada</string>
+    <string name="news_error_title">Comunicação comprometida</string>
+    <string name="news_error_body">Está transmissão foi interrompida. Voltamos em alguns instantes.</string>
     <string name="before_district">Bairro Anterior</string>
     <string name="next_district">Próximo Bairro</string>
+
+    <!-- DASHBAORD -->
+    <string name="district">Bairro</string>
+    <string-array name="districts">
+        <item></item>
+        <item>Alfiran</item>
+        <item>Ameisen</item>
+        <item>Aranhas</item>
+        <item>Ptitsy</item>
+        <item>Tokojirami</item>
+        <item>Vyura</item>
+    </string-array>
 </resources>
