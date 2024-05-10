@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Setor 0 - Notícias</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Salvas</string>
+    <string name="title_notifications">Notícias</string>
+    <string name="before_district">Bairro Anterior</string>
+    <string name="next_district">Próximo Bairro</string>
+</resources>

@@ -1,0 +1,44 @@
+[versions]
+agp = "8.4.0"
+gson = "2.10.1"
+kotlin = "1.9.22"
+kapt = "2.0.0-Beta4"
+hilt = "2.51"
+ksp = "1.8.10-1.0.9"
+secrets = "2.0.1"
+
+appcompat = "1.6.1"
+constraintlayout = "2.1.4"
+espressoCore = "3.5.1"
+generativeai = "0.5.0"
+hiltAndroid = "2.51.1"
+junit = "4.13.2"
+junitVersion = "1.1.5"
+coreKtx = "1.13.1"
+lifecycleLivedataKtx = "2.7.0"
+material = "1.12.0"
+navigationFragmentKtx = "2.7.7"
+
+[libraries]
+androidx-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espressoCore" }
+androidx-junit = { module = "androidx.test.ext:junit", version.ref = "junitVersion" }
+androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleLivedataKtx" }
+androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
+androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigationFragmentKtx" }
+appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
+constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
+coreKtx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+generativeai = { module = "com.google.ai.client.generativeai:generativeai", version.ref = "generativeai" }
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
+hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroid" }
+junit = { module = "junit:junit", version.ref = "junit" }
+lifecycle-livedata-ktx = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "lifecycleLivedataKtx" }
+material = { module = "com.google.android.material:material", version.ref = "material" }
+
+[plugins]
+androidApplication = { id = "com.android.application", version.ref = "agp" }
+kotlinJetbrains = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+androidHilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+kotlinKaptJetbrains = { id = "org.jetbrains.kotlin.kapt", version.ref = "kapt" }
+secretsGradle = { id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin", version.ref = "secrets" }

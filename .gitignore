@@ -46,3 +46,4 @@ google-services.json
 
 # Others
 .DS_Store
+/secrets.properties

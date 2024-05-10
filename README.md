@@ -7,7 +7,7 @@ Obtive acesso a biblioteca um pouco antes do curso de [imersão da Alura](https:
 ## Contexto
 Este aplicativo serve para criar notícias em um mundo distópico para o jogo de RPG [Setor 0 - O Submundo](https://www.setor0rpg.com.br).
 
-As notícias são criadas a partir do ponto de vista de um "jornalista" habitante do Setor 0, de modo informal e coloquial. 
+As notícias são criadas a partir do ponto de vista de um "jornalista" habitante do Setor 0, de modo informal e coloquial.
 
 Por se tratar de um mundo devastado, as configurações de segurança foram reduzidas ou praticamente zeradas, mas podem ser configuradas no seguinte trecho:
 ```kotlin
@@ -26,19 +26,21 @@ O Consumo da API é através do objeto `GenerativeModel`, que é criado na execu
 fun provideGenerativeAi(): GenerativeModel {
     return GenerativeModel(
         modelName = "gemini-pro",
-        apiKey = `YOUR_KEY`,
+        apiKey = BuildConfig.GEMINI_API_KEY,
         generationConfig = generationConfig,
         safetySettings = safetySettingsNoneSafety,
     )
 }
 ```
 
+A chave da API é configurada no arquivo `local.defaults.properties` alterando o valor `DEFAULT_API_KEY` pela sua chave, que pode ser obtida [aqui](https://aistudio.google.com/app/apikey).
+```md
+GEMINI_API_KEY=DEFAULT_API_KEY
+```
+Caso deseje utilizar essa configuração de modo mais seguro e que possa disponibilizar para versionamento de código, veja como na documentação do [Google](https://developers.google.com/maps/documentation/android-sdk/secrets-gradle-plugin?hl=pt-br#kotlin).
+
 ## Arquitetura
-* MVVM
-
-## Implementação do Modelo Generativo
-O modelo é definido de forma a ser utilizado na maior parte das notícias, sendo construido com os seguintes parâmetros:
-
+* MVVM (Model-View-ViewModel) - é um padrão de arquitetura de software que visa separar a lógica de negócios e a apresentação dos dados da interface do usuário (UI). A ideia é facilitar o desenvolvimento, teste e manutenção de aplicações, principalmente em interfaces complexas. ([Gerado com o Gemini](https://aistudio.google.com/app/prompts/new_chat))
 
 ## Bibliotecas
 * IA Generativa [Gemini](https://ai.google.dev/gemini-api/docs/get-started/android?hl=pt-br)
@@ -48,11 +50,11 @@ O modelo é definido de forma a ser utilizado na maior parte das notícias, send
 * Apresentação de dados reativos com [LiveData](https://developer.android.com/topic/libraries/architecture/livedata?hl=pt-br)
 * Conversão de dados com [Gson](https://github.com/google/gson)
 
-## Features
+## Funcionalidades
 * Gerador de notícias do Setor 0.
 * Copiar notícias.
 
-## Features Pretendidas
+## Funcionalidades Pretendidas
 * [x] Gerador de notícias.
 * [x] Copiar notícias.
 * [ ] Comentários nas notícias.
