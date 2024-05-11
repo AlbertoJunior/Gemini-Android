@@ -1,16 +1,17 @@
 package albertojunior.setor0.app.noticias.ui.news
 
 import albertojunior.setor0.app.noticias.R
-import albertojunior.setor0.app.noticias.exception.NewsException
-import albertojunior.setor0.app.noticias.extension.combine
-import albertojunior.setor0.app.noticias.model.District
-import albertojunior.setor0.app.noticias.model.news.CoreInformationNewsConverter
-import albertojunior.setor0.app.noticias.model.news.News
-import albertojunior.setor0.app.noticias.model.news.NewsConverter
-import albertojunior.setor0.app.noticias.model.news.NewsDTO
-import albertojunior.setor0.app.noticias.model.prompter.PromptCoreInformationNews
-import albertojunior.setor0.app.noticias.model.prompter.PromptDistrictNews
+import albertojunior.setor0.app.noticias.ai.prompter.PromptCoreInformationNews
+import albertojunior.setor0.app.noticias.ai.prompter.PromptDistrictNews
+import albertojunior.setor0.app.noticias.data.model.District
+import albertojunior.setor0.app.noticias.data.model.coreinformation.CoreInformationNewsConverter
+import albertojunior.setor0.app.noticias.data.model.news.News
+import albertojunior.setor0.app.noticias.data.model.news.NewsConverter
+import albertojunior.setor0.app.noticias.data.model.news.NewsDTO
+import albertojunior.setor0.app.noticias.data.model.news.NewsException
+import albertojunior.setor0.app.noticias.data.repository.NewsRepository
 import albertojunior.setor0.app.noticias.utils.ContextUtils
+import albertojunior.setor0.app.noticias.utils.extension.combine
 import android.content.Context
 import android.content.res.Resources
 import android.view.View
@@ -38,9 +39,9 @@ class NewsViewModel @Inject constructor(
     private val _currentChannel = MutableLiveData(0)
     val channel = _currentChannel.map { resourceProvider.getString(R.string.news_channel, it, channels[it].name) }
 
-    private val _titleText = MutableLiveData(resourceProvider.getString(R.string.news_empty))
+    private val _titleText = MutableLiveData(resourceProvider.getString(R.string.news_title_empty))
     val titleText: LiveData<String> = _titleText
-    private val _newsText = MutableLiveData("")
+    private val _newsText = MutableLiveData(resourceProvider.getString(R.string.news_body_empty))
     val newsText: LiveData<String> = _newsText
 
     private val _loading = MutableLiveData(false)
@@ -49,12 +50,17 @@ class NewsViewModel @Inject constructor(
     val channelButtonsEnabled = _loading.map { !it }
 
     val copyButtonEnabled = combine(_loading, _titleText, _newsText) { isLoad, title, news ->
-        val newsEmpty = resourceProvider.getString(R.string.news_empty)
+        val notLoading = !(isLoad ?: false)
 
-        val safeA = isLoad ?: false
-        val safeB = title ?: newsEmpty
-        val safeC = news.orEmpty()
-        !safeA && safeB.isNotEmpty() && safeB != newsEmpty && safeC.isNotEmpty()
+        val newsTitleEmpty = resourceProvider.getString(R.string.news_title_empty)
+        val safeTitle = title ?: newsTitleEmpty
+        val haveTitle = safeTitle.isNotEmpty() && safeTitle != newsTitleEmpty
+
+        val newsBodyEmpty = resourceProvider.getString(R.string.news_body_empty)
+        val safeBody = news ?: newsBodyEmpty
+        val haveBody = safeBody.isNotEmpty() && safeBody != newsBodyEmpty
+
+        notLoading && haveTitle && haveBody
     }
 
     val refreshButtonEnabled = _loading.map { !it }
@@ -85,15 +91,9 @@ class NewsViewModel @Inject constructor(
             val oldNews = repository.getNews(district.name)
             val prompt = PromptDistrictNews(district, oldNews).mount()
 
-            runCatching {
-                println(prompt)
-                generativeModel.generateContent(prompt)
-            }.onSuccess { response ->
-                operateNews(response, district)
-            }.onFailure {
-                println(it)
-                showErrorNews()
-            }
+            runCatching { generativeModel.generateContent(prompt) }
+                .onSuccess { response -> operateNews(response, district) }
+                .onFailure { showErrorNews() }
 
             _loading.value = false
         }
@@ -135,11 +135,8 @@ class NewsViewModel @Inject constructor(
                 it.text?.let { text ->
                     val coreInfo = CoreInformationNewsConverter.convertTextToCoreInformationNews(text)
                     val element = News(district, news.title, news.news, coreInfo)
-                    println("Informações: \n$coreInfo")
                     repository.addNews(element)
                 }
-            }.onFailure {
-                println(it)
             }
         }
     }

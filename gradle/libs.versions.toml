@@ -39,6 +39,8 @@ material = { module = "com.google.android.material:material", version.ref = "mat
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 kotlinJetbrains = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-androidHilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 kotlinKaptJetbrains = { id = "org.jetbrains.kotlin.kapt", version.ref = "kapt" }
+kotlinParcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
+androidHilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 secretsGradle = { id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin", version.ref = "secrets" }
+navigationSafeArgs = { id = "androidx.navigation.safeargs.kotlin", version.ref = "navigationFragmentKtx" }

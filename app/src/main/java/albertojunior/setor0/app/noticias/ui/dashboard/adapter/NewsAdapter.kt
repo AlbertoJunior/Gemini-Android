@@ -1,7 +1,7 @@
 package albertojunior.setor0.app.noticias.ui.dashboard.adapter
 
+import albertojunior.setor0.app.noticias.data.model.news.News
 import albertojunior.setor0.app.noticias.databinding.ItemNewsBinding
-import albertojunior.setor0.app.noticias.model.news.News
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil

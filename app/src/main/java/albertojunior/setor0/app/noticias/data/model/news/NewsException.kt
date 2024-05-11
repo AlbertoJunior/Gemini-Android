@@ -1,4 +1,4 @@
-package albertojunior.setor0.app.noticias.exception
+package albertojunior.setor0.app.noticias.data.model.news
 
 class NewsException(message: String, exception: Throwable? = null) : Exception(message, exception) {
     companion object {

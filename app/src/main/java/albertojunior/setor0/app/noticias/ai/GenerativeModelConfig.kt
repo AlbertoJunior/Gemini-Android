@@ -1,7 +1,7 @@
 package albertojunior.setor0.app.noticias.ai
 
-import albertojunior.setor0.app.noticias.model.news.CoreInformationNews
-import albertojunior.setor0.app.noticias.model.news.NewsDTO
+import albertojunior.setor0.app.noticias.data.model.coreinformation.CoreInformationNews
+import albertojunior.setor0.app.noticias.data.model.news.NewsDTO
 import com.google.ai.client.generativeai.type.BlockThreshold
 import com.google.ai.client.generativeai.type.Content
 import com.google.ai.client.generativeai.type.HarmCategory
@@ -78,6 +78,7 @@ object GenerativeModelConfig {
                 TextPart("Você é uma pessoa super otimista que vive em um mundo cyberpunk"),
                 TextPart("Deve ter menos de 50 palavras"),
                 TextPart("O Mundo que você vive se chama Setor 0"),
+                TextPart("Nunca utilize termos como cibercidadão, ou cyberpunk."),
             )
         )
     }

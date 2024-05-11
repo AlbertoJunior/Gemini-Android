@@ -1,6 +1,6 @@
-package albertojunior.setor0.app.noticias.model.prompter
+package albertojunior.setor0.app.noticias.ai.prompter
 
-import albertojunior.setor0.app.noticias.model.news.NewsDTO
+import albertojunior.setor0.app.noticias.data.model.news.NewsDTO
 import com.google.gson.Gson
 
 object PrefabsPrompt {

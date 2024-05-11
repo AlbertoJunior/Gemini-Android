@@ -8,10 +8,12 @@
     <string name="home_body">Este aplicativo é uma ferramenta para criação de textos fictícios para o RPG de mesa <b>Setor 0 - O Submundo</b> e todos os textos apresentados aqui não devem ser utilizados em qualquer outro contexto que não seja de jogo.</string>
     <string name="home_error">(Infelizmente ocorreu um erro ao tentar gerar o texto com o <b>Gemini IA</b>)</string>
     <string name="home_welcome_message">— %1$s (Texto gerado por <b>Gemini IA</b>)</string>
+    <string name="home_offline_welcome_message">E aí, guerreiro! Prontos para encarar a realidade do Setor 0? Respire fundo, as notícias podem ser pesadas, mas juntos vamos construir um futuro melhor, pixel a pixel! 💪</string>
 
     <!-- NEWS -->
     <string name="news_channel">Canal %1$d: %2$s</string>
-    <string name="news_empty">Sem notícias</string>
+    <string name="news_title_empty">Feed Bugado? A Gente Conserta! 😉</string>
+    <string name="news_body_empty">E aí, galera! O feed de notícias tá mais parado que Androide enferrujado? Relaxa, estamos consertando a bagaça.\n\nParece que a comunicação com os servidores deu B.O., mas já estamos dando um choque de realidade nele.\n\nLogo logo essa zueira tá de volta, com as últimas do Submundo e altas doses de sarcasmo. Fica ligado!\n\nDá um refreshizinho aí de vez em quando pra ver se a coisa tá rolando! 🫶</string>
     <string name="news_text_copied">Notícia copiada</string>
     <string name="news_error_title">Comunicação comprometida</string>
     <string name="news_error_body">Está transmissão foi interrompida. Voltamos em alguns instantes.</string>
@@ -29,4 +31,13 @@
         <item>Tokojirami</item>
         <item>Vyura</item>
     </string-array>
+
+    <!-- INFORMATION -->
+    <string name="information_back">Voltar</string>
+    <string name="information_district"><b>Bairro:</b> %1$s</string>
+    <string name="information_who"><b>Quem provocou:</b> %1$s</string>
+    <string name="information_what"><b>O que aconteceu:</b> %1$s</string>
+    <string name="information_when"><b>Quando foi:</b> %1$s</string>
+    <string name="information_how"><b>Como foi:</b> %1$s</string>
+    <string name="information_result"><b>Consequências:</b> %1$s</string>
 </resources>

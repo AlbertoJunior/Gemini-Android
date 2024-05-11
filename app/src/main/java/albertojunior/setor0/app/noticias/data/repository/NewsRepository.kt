@@ -1,6 +1,6 @@
-package albertojunior.setor0.app.noticias.ui.news
+package albertojunior.setor0.app.noticias.data.repository
 
-import albertojunior.setor0.app.noticias.model.news.News
+import albertojunior.setor0.app.noticias.data.model.news.News
 
 interface NewsRepository {
     val lastNews: HashMap<String, MutableList<News>>

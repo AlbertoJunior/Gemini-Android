@@ -1,7 +1,7 @@
-package albertojunior.setor0.app.noticias.model.prompter
+package albertojunior.setor0.app.noticias.ai.prompter
 
-import albertojunior.setor0.app.noticias.model.District
-import albertojunior.setor0.app.noticias.model.news.News
+import albertojunior.setor0.app.noticias.data.model.District
+import albertojunior.setor0.app.noticias.data.model.news.News
 
 class PromptDistrictNews(
     private val district: District,

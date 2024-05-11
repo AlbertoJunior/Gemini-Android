@@ -1,5 +1,9 @@
-package albertojunior.setor0.app.noticias.model
+package albertojunior.setor0.app.noticias.data.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class District(
     val name: String,
     val region: Region,
@@ -8,7 +12,7 @@ data class District(
     val refer: String,
     val neighborLeft: String,
     val neighborRight: String,
-) {
+) : Parcelable {
 
     companion object {
         val alfiran = District(

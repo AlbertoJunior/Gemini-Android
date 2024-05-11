@@ -11,157 +11,221 @@
             type="albertojunior.setor0.app.noticias.ui.information.InformationViewModel" />
     </data>
 
-    <com.google.android.material.card.MaterialCardView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="8dp"
-        app:contentPadding="8dp">
+        android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/container_news_information"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="0dp"
+            android:layout_margin="8dp"
+            android:backgroundTint="?colorSecondaryContainer"
+            app:cardCornerRadius="8dp"
+            app:contentPadding="8dp"
+            app:layout_constraintBottom_toTopOf="@id/btn_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.core.widget.NestedScrollView
-                android:id="@+id/scroll_container"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toTopOf="@id/container_buttons"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_height="match_parent">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <androidx.core.widget.NestedScrollView
+                    android:id="@+id/scroll_container"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toTopOf="@id/divider_news"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-                    <LinearLayout
-                        android:id="@+id/ll_resume"
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
+                        android:layout_height="match_parent"
+                        android:paddingBottom="8dp">
 
-                        <TextView
-                            style="@style/TextAppearance.AppCompat.Medium"
+                        <LinearLayout
+                            android:id="@+id/ll_resume"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            tools:text="Bairro: sei la" />
+                            android:orientation="vertical"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                style="@style/TextAppearance.AppCompat.Medium"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@{viewModel.newsDistrict}"
+                                android:textColor="?colorOnSecondaryContainer"
+                                tools:text="Bairro: sei la" />
+
+                            <com.google.android.material.divider.MaterialDivider
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginVertical="4dp"
+                                app:dividerColor="?colorOnSecondaryContainer" />
+
+                            <TextView
+                                style="@style/TextAppearance.AppCompat.Small"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="@{viewModel.newsWho}"
+                                android:textColor="?colorOnSecondaryContainer"
+                                tools:text="Quem provocou: sei la" />
+
+                            <TextView
+                                style="@style/TextAppearance.AppCompat.Small"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="@{viewModel.newsWhat}"
+                                android:textColor="?colorOnSecondaryContainer"
+                                tools:text="O que aconteceu: sei la" />
+
+                            <TextView
+                                style="@style/TextAppearance.AppCompat.Small"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="@{viewModel.newsWhen}"
+                                android:textColor="?colorOnSecondaryContainer"
+                                tools:text="Quando foi: sei la" />
+
+                            <TextView
+                                style="@style/TextAppearance.AppCompat.Small"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="@{viewModel.newsHow}"
+                                android:textColor="?colorOnSecondaryContainer"
+                                tools:text="Como foi: sei la" />
+
+                            <TextView
+                                style="@style/TextAppearance.AppCompat.Small"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="@{viewModel.newsResult}"
+                                android:textColor="?colorOnSecondaryContainer"
+                                tools:text="Consequências: sei la" />
+                        </LinearLayout>
 
                         <com.google.android.material.divider.MaterialDivider
+                            android:id="@+id/divider_resume_news"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginVertical="4dp" />
+                            android:layout_marginTop="8dp"
+                            app:dividerColor="?colorOnSecondaryContainer"
+                            app:dividerInsetEnd="8dp"
+                            app:dividerInsetStart="24dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/ll_resume" />
 
-                        <TextView
-                            style="@style/TextAppearance.AppCompat.Caption"
+                        <LinearLayout
+                            android:id="@+id/ll_news"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            tools:text="Quem provocou: sei la" />
-
-                        <TextView
-                            style="@style/TextAppearance.AppCompat.Caption"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            tools:text="O que aconteceu: sei la" />
-
-                        <TextView
-                            style="@style/TextAppearance.AppCompat.Caption"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            tools:text="Como foi: sei la" />
-
-                        <TextView
-                            style="@style/TextAppearance.AppCompat.Caption"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            tools:text="Consequências: sei la" />
-                    </LinearLayout>
-
-                    <com.google.android.material.divider.MaterialDivider
-                        android:id="@+id/divider_resume_news"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        app:dividerInsetEnd="8dp"
-                        app:dividerInsetStart="24dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/ll_resume" />
-
-                    <LinearLayout
-                        android:id="@+id/ll_news"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:orientation="vertical"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/divider_resume_news">
-
-                        <TextView
-                            android:id="@+id/title_news"
-                            style="@style/TextAppearance.AppCompat.Medium"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginVertical="4dp"
+                            android:layout_marginTop="8dp"
+                            android:orientation="vertical"
                             android:paddingVertical="4dp"
-                            android:textAlignment="center"
-                            tools:text="Testando o tamanho da mensagem" />
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/divider_resume_news">
 
-                        <TextView
-                            android:id="@+id/text_notifications"
-                            style="@style/TextAppearance.AppCompat.Body1"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginVertical="4dp"
-                            android:paddingVertical="4dp"
-                            android:textAlignment="center"
-                            tools:text="Testando o tamanho da mensagem" />
-                    </LinearLayout>
+                            <TextView
+                                android:id="@+id/title_news"
+                                style="@style/TextAppearance.AppCompat.Medium"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginVertical="4dp"
+                                android:paddingVertical="4dp"
+                                android:text="@{viewModel.news.title}"
+                                android:textAlignment="center"
+                                android:textColor="?colorOnSecondaryContainer"
+                                tools:text="Testando o tamanho da mensagem" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.core.widget.NestedScrollView>
+                            <TextView
+                                android:id="@+id/text_notifications"
+                                style="@style/TextAppearance.AppCompat.Body1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginVertical="4dp"
+                                android:paddingVertical="4dp"
+                                android:text="@{viewModel.news.body}"
+                                android:textAlignment="center"
+                                android:textColor="?colorOnSecondaryContainer"
+                                tools:text="Testando o tamanho da mensagem" />
+                        </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/container_buttons"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="end"
-                android:orientation="horizontal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.core.widget.NestedScrollView>
 
-                <com.google.android.material.button.MaterialButton
-                    style="@style/Widget.Material3.Button.IconButton.Filled"
-                    android:layout_width="wrap_content"
+                <com.google.android.material.divider.MaterialDivider
+                    android:id="@+id/divider_news"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="4dp"
-                    android:animateLayoutChanges="true"
-                    android:onClickListener="@{() -> viewModel.copyNews(context)}"
-                    app:icon="@drawable/ic_copy_content_black_24dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    android:layout_marginBottom="8dp"
+                    app:dividerColor="?colorOnSecondaryContainer"
+                    app:dividerInsetEnd="24dp"
+                    app:dividerInsetStart="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/container_buttons" />
 
-                <com.google.android.material.button.MaterialButton
-                    style="@style/Widget.Material3.Button.IconButton.Filled"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:id="@+id/container_buttons"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="4dp"
-                    android:animateLayoutChanges="true"
-                    android:onClickListener="@{() -> viewModel.shareNews(context)}"
-                    app:icon="@drawable/ic_copy_content_black_24dp"
+                    android:gravity="end"
+                    android:orientation="horizontal"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
-            </LinearLayout>
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.card.MaterialCardView>
+                    <com.google.android.material.button.MaterialButton
+                        style="@style/Widget.Material3.Button.IconButton.Filled"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="4dp"
+                        android:animateLayoutChanges="true"
+                        android:onClickListener="@{() -> viewModel.copyNews(context)}"
+                        app:icon="@drawable/ic_share_black_24dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <com.google.android.material.button.MaterialButton
+                        style="@style/Widget.Material3.Button.IconButton.Filled"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="4dp"
+                        android:animateLayoutChanges="true"
+                        android:onClickListener="@{() -> viewModel.shareNews(context)}"
+                        app:icon="@drawable/ic_copy_content_black_24dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_back"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClickListener="@{() -> viewModel.back()}"
+            android:text="@string/information_back"
+            android:textSize="14.0sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

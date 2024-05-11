@@ -7,13 +7,14 @@
 
         <variable
             name="item"
-            type="albertojunior.setor0.app.noticias.model.news.News" />
+            type="albertojunior.setor0.app.noticias.data.model.news.News" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
+        android:backgroundTint="?colorSecondaryContainer"
         android:elevation="4dp"
         app:cardCornerRadius="4dp"
         app:contentPadding="8dp">
@@ -28,6 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@{item.district.name}"
+                android:textColor="?colorOnSecondaryContainer"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -40,6 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="@{item.title}"
+                android:textColor="?colorOnSecondaryContainer"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_district"

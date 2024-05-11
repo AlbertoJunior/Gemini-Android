@@ -1,6 +1,6 @@
-package albertojunior.setor0.app.noticias.model.news
+package albertojunior.setor0.app.noticias.data.model.coreinformation
 
-import albertojunior.setor0.app.noticias.exception.NewsException
+import albertojunior.setor0.app.noticias.data.model.news.NewsException
 import com.google.gson.Gson
 
 object CoreInformationNewsConverter {

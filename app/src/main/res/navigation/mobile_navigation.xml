@@ -16,9 +16,14 @@
         android:name="albertojunior.setor0.app.noticias.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard">
+
         <action
             android:id="@+id/action_navigation_dashboard_to_informationFragment"
-            app:destination="@id/informationFragment" />
+            app:destination="@id/informationFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
     </fragment>
 
     <fragment
@@ -31,5 +36,10 @@
         android:id="@+id/informationFragment"
         android:name="albertojunior.setor0.app.noticias.ui.information.InformationFragment"
         android:label="InformationFragment"
-        tools:layout="@layout/fragment_information" />
+        tools:layout="@layout/fragment_information" >
+
+        <argument
+            android:name="news"
+            app:argType="albertojunior.setor0.app.noticias.data.model.news.News" />
+    </fragment>
 </navigation>

@@ -4,8 +4,10 @@ plugins {
     alias(libs.plugins.kotlinJetbrains) apply false
 
     alias(libs.plugins.kotlinKaptJetbrains) apply false
+    alias(libs.plugins.kotlinParcelize) apply false
 
     alias(libs.plugins.androidHilt) apply false
+    alias(libs.plugins.secretsGradle) apply false
 
     alias(libs.plugins.secretsGradle)
 }

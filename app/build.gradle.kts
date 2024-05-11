@@ -4,6 +4,8 @@ plugins {
     alias(libs.plugins.androidHilt)
     alias(libs.plugins.kotlinKaptJetbrains)
     alias(libs.plugins.secretsGradle)
+    alias(libs.plugins.navigationSafeArgs)
+    alias(libs.plugins.kotlinParcelize)
     //alias(libs.plugins.kotlinKsp)
 }
 

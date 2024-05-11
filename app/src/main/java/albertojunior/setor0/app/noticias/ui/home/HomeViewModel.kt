@@ -1,6 +1,7 @@
 package albertojunior.setor0.app.noticias.ui.home
 
 import albertojunior.setor0.app.noticias.R
+import albertojunior.setor0.app.noticias.ai.prompter.PromptWelcome
 import android.content.res.Resources
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -17,7 +18,8 @@ class HomeViewModel @Inject constructor(
     @Named("Welcome") private val generativeModel: GenerativeModel,
     private val resources: Resources
 ) : ViewModel() {
-    private val _welcomeText = MutableLiveData<String>()
+    private val prompter = PromptWelcome().mount()
+    private val _welcomeText = MutableLiveData(resources.getString(R.string.home_offline_welcome_message))
     val welcomeText = _welcomeText.map {
         if (it.isNotBlank())
             resources.getString(R.string.home_welcome_message, it)
@@ -27,13 +29,9 @@ class HomeViewModel @Inject constructor(
 
     fun generateWelcomeText() {
         viewModelScope.launch {
-            runCatching {
-                generativeModel.generateContent()
-            }.onSuccess {
-                _welcomeText.value = it.text
-            }.onFailure {
-                _welcomeText.value = ""
-            }
+            runCatching { generativeModel.generateContent(prompter) }
+                .onSuccess { _welcomeText.value = it.text }
+                .onFailure { _welcomeText.value = resources.getString(R.string.home_offline_welcome_message) }
         }
     }
 }
