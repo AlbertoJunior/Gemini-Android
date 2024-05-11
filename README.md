@@ -40,6 +40,11 @@ GEMINI_API_KEY=DEFAULT_API_KEY
 ```
 Caso deseje utilizar essa configuração de modo mais seguro e que possa disponibilizar para versionamento de código, veja como na documentação do [Google](https://developers.google.com/maps/documentation/android-sdk/secrets-gradle-plugin?hl=pt-br#kotlin).
 
+## Telas
+<img src="imgs/home.png" width="265" height="590"> <img src="imgs/noticia_sucesso.png" width="265" height="590"> <img src="imgs/noticia_erro.png" width="265" height="590">
+
+<img src="imgs/salvas_listagem.png" width="265" height="590"> <img src="imgs/salvas_tela.png" width="265" height="590">
+
 ## Arquitetura
 * MVVM (Model-View-ViewModel) - é um padrão de arquitetura de software que visa separar a lógica de negócios e a apresentação dos dados da interface do usuário (UI). A ideia é facilitar o desenvolvimento, teste e manutenção de aplicações, principalmente em interfaces complexas. ([Gerado com o Gemini](https://aistudio.google.com/app/prompts/new_chat))
 

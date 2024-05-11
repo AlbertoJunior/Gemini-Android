@@ -67,7 +67,7 @@
                             <com.google.android.material.divider.MaterialDivider
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginVertical="4dp"
+                                android:layout_marginVertical="8dp"
                                 app:dividerColor="?colorOnSecondaryContainer" />
 
                             <TextView
@@ -120,7 +120,7 @@
                             android:id="@+id/divider_resume_news"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
+                            android:layout_marginTop="16dp"
                             app:dividerColor="?colorOnSecondaryContainer"
                             app:dividerInsetEnd="8dp"
                             app:dividerInsetStart="24dp"
