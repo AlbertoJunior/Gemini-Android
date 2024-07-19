@@ -1,6 +1,7 @@
 package albertojunior.setor0.app.noticias.data.model
 
 import android.os.Parcelable
+import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -79,8 +80,10 @@ data class District(
         )
     }
 
+    @IgnoredOnParcel
     private val noHave2 = if (noHave.isEmpty()) "" else " Não falar de $noHave"
 
+    @IgnoredOnParcel
     val information =
         "$name, fica na região ${region.name}, os acontecimentos normalmente são sobre $newsMostCommon; " +
                 "Se refira a este como $refer; " +

@@ -36,7 +36,7 @@
         android:id="@+id/informationFragment"
         android:name="albertojunior.setor0.app.noticias.ui.information.InformationFragment"
         android:label="InformationFragment"
-        tools:layout="@layout/fragment_information" >
+        tools:layout="@layout/fragment_information">
 
         <argument
             android:name="news"

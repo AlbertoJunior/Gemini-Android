@@ -33,9 +33,7 @@ class InformationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.setNews(args.news)
-        viewModel.back.observe(viewLifecycleOwner) {
-            navController.popBackStack()
-        }
+        viewModel.back.observe(viewLifecycleOwner) { navController.navigateUp() }
     }
 
     override fun onResume() {

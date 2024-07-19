@@ -1,21 +1,21 @@
 [versions]
-agp = "8.4.0"
-gson = "2.10.1"
-kotlin = "1.9.22"
-kapt = "2.0.0-Beta4"
+agp = "8.5.1"
+gson = "2.11.0"
+kotlin = "2.0.0"
 hilt = "2.51"
-ksp = "1.8.10-1.0.9"
+kapt = "2.0.0-Beta4"
+ksp = "2.0.0-1.0.22"
 secrets = "2.0.1"
 
-appcompat = "1.6.1"
+appcompat = "1.7.0"
 constraintlayout = "2.1.4"
-espressoCore = "3.5.1"
-generativeai = "0.5.0"
+espressoCore = "3.6.1"
+generativeai = "0.9.0"
 hiltAndroid = "2.51.1"
 junit = "4.13.2"
-junitVersion = "1.1.5"
+junitVersion = "1.2.1"
 coreKtx = "1.13.1"
-lifecycleLivedataKtx = "2.7.0"
+lifecycleLivedataKtx = "2.8.3"
 material = "1.12.0"
 navigationFragmentKtx = "2.7.7"
 
@@ -25,6 +25,7 @@ androidx-junit = { module = "androidx.test.ext:junit", version.ref = "junitVersi
 androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleLivedataKtx" }
 androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
 androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigationFragmentKtx" }
+androidx-lifecycle-livedata-ktx = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "lifecycleLivedataKtx" }
 appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
 constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
 coreKtx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -33,14 +34,15 @@ gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
 hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroid" }
 junit = { module = "junit:junit", version.ref = "junit" }
-lifecycle-livedata-ktx = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "lifecycleLivedataKtx" }
 material = { module = "com.google.android.material:material", version.ref = "material" }
 
 [plugins]
-androidApplication = { id = "com.android.application", version.ref = "agp" }
-kotlinJetbrains = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-kotlinKaptJetbrains = { id = "org.jetbrains.kotlin.kapt", version.ref = "kapt" }
-kotlinParcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
-androidHilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
-secretsGradle = { id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin", version.ref = "secrets" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+kotlin-jetbrains = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-kapt-jetbrains = { id = "org.jetbrains.kotlin.kapt", version.ref = "kapt" }
+kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
 navigationSafeArgs = { id = "androidx.navigation.safeargs.kotlin", version.ref = "navigationFragmentKtx" }
+secrets-gradle = { id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin", version.ref = "secrets" }
+kotlinKsp = { id = "com.google.devtools.ksp", version.ref = "ksp" }

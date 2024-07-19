@@ -2,11 +2,13 @@ package albertojunior.setor0.app.noticias.ui.home
 
 import albertojunior.setor0.app.noticias.R
 import albertojunior.setor0.app.noticias.databinding.FragmentHomeBinding
+import albertojunior.setor0.app.noticias.utils.ContextUtils
+import albertojunior.setor0.app.noticias.utils.extension.hideNavBar
+import albertojunior.setor0.app.noticias.utils.extension.showNavBar
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
@@ -35,10 +37,16 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupObservers() {
-        val fadeIn = AnimationUtils.loadAnimation(requireContext(), R.anim.fade_in)
-        binding.textWelcome.animation = fadeIn
-        binding.clWelcomeMessage.animation = fadeIn
-        viewModel.welcomeText.observe(viewLifecycleOwner) { fadeIn.start() }
+        viewModel.welcomeText.observe(viewLifecycleOwner) {
+            val fadeIn = ContextUtils.generateDefaultFadeIn(requireContext())
+            binding.textWelcome.startAnimation(fadeIn)
+            binding.clWelcomeMessage.startAnimation(fadeIn)
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        showNavBar()
     }
 
 }

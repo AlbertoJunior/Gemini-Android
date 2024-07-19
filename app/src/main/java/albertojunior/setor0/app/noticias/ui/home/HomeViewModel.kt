@@ -26,11 +26,18 @@ class HomeViewModel @Inject constructor(
         else
             resources.getString(R.string.home_error)
     }
+    private var hasGeneratedWelcome = false
 
     fun generateWelcomeText() {
         viewModelScope.launch {
+            if (hasGeneratedWelcome)
+                return@launch
+
             runCatching { generativeModel.generateContent(prompter) }
-                .onSuccess { _welcomeText.value = it.text }
+                .onSuccess {
+                    _welcomeText.value = it.text
+                    hasGeneratedWelcome = true
+                }
                 .onFailure { _welcomeText.value = resources.getString(R.string.home_offline_welcome_message) }
         }
     }

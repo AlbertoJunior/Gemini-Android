@@ -35,12 +35,12 @@ class InformationViewModel @Inject constructor(
     }
 
     fun copyNews(context: Context) {
-        val newsInformation = _news.value ?: return
+        _news.value ?: return
         ContextUtils.copyMessage(context, resourceProvider.getString(R.string.news_text_copied), "")
     }
 
     fun shareNews(context: Context) {
-        val newsInformation = _news.value ?: return
+        _news.value ?: return
         ContextUtils.copyMessage(context, resourceProvider.getString(R.string.news_text_copied), "")
     }
 

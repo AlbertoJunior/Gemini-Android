@@ -1,12 +1,11 @@
 plugins {
-    alias(libs.plugins.androidApplication)
-    alias(libs.plugins.kotlinJetbrains)
-    alias(libs.plugins.androidHilt)
-    alias(libs.plugins.kotlinKaptJetbrains)
-    alias(libs.plugins.secretsGradle)
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.jetbrains)
+    alias(libs.plugins.kotlin.parcelize)
+    alias(libs.plugins.secrets.gradle)
     alias(libs.plugins.navigationSafeArgs)
-    alias(libs.plugins.kotlinParcelize)
-    //alias(libs.plugins.kotlinKsp)
+    alias(libs.plugins.android.hilt)
+    alias(libs.plugins.kotlin.kapt.jetbrains)
 }
 
 android {
@@ -47,8 +46,16 @@ android {
 }
 
 secrets {
+    // Change the properties file from the default "local.properties" in your root project
+    // to another properties file in your root project.
     propertiesFileName = "secrets.properties"
+
+    // A properties file containing default secret values. This file can be checked in version
+    // control.
     defaultPropertiesFileName = "local.defaults.properties"
+
+    // Configure which keys should be ignored by the plugin by providing regular expressions.
+    // "sdk.dir" is ignored by default.
     ignoreList.add("keyToIgnore") // Ignore the key "keyToIgnore"
     ignoreList.add("sdk.*")       // Ignore all keys matching the regexp "sdk.*"
 }
@@ -59,7 +66,7 @@ dependencies {
     implementation(libs.material)
 
     implementation(libs.constraintlayout)
-    implementation(libs.lifecycle.livedata.ktx)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
@@ -68,14 +75,13 @@ dependencies {
 
     implementation(libs.gson)
 
-    implementation (libs.hilt.android)
-    kapt (libs.hilt.android.compiler)
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
-
 // Allow references to generated code
 kapt {
     correctErrorTypes = true

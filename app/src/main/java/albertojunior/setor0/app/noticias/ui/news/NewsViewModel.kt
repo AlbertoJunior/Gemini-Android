@@ -11,6 +11,7 @@ import albertojunior.setor0.app.noticias.data.model.news.NewsDTO
 import albertojunior.setor0.app.noticias.data.model.news.NewsException
 import albertojunior.setor0.app.noticias.data.repository.NewsRepository
 import albertojunior.setor0.app.noticias.utils.ContextUtils
+import albertojunior.setor0.app.noticias.utils.Event
 import albertojunior.setor0.app.noticias.utils.extension.combine
 import android.content.Context
 import android.content.res.Resources
@@ -40,8 +41,10 @@ class NewsViewModel @Inject constructor(
     val channel = _currentChannel.map { resourceProvider.getString(R.string.news_channel, it, channels[it].name) }
 
     private val _titleText = MutableLiveData(resourceProvider.getString(R.string.news_title_empty))
+    private val errorTitleText by lazy { resourceProvider.getString(R.string.news_error_title) }
     val titleText: LiveData<String> = _titleText
     private val _newsText = MutableLiveData(resourceProvider.getString(R.string.news_body_empty))
+    private val errorNewsText by lazy { resourceProvider.getString(R.string.news_error_body) }
     val newsText: LiveData<String> = _newsText
 
     private val _loading = MutableLiveData(false)
@@ -50,20 +53,28 @@ class NewsViewModel @Inject constructor(
     val channelButtonsEnabled = _loading.map { !it }
 
     val copyButtonEnabled = combine(_loading, _titleText, _newsText) { isLoad, title, news ->
-        val notLoading = !(isLoad ?: false)
+        val notLoading = isLoad != true
 
         val newsTitleEmpty = resourceProvider.getString(R.string.news_title_empty)
         val safeTitle = title ?: newsTitleEmpty
-        val haveTitle = safeTitle.isNotEmpty() && safeTitle != newsTitleEmpty
+        val haveTitle = safeTitle.isNotEmpty() && safeTitle != newsTitleEmpty && safeTitle != errorTitleText
 
         val newsBodyEmpty = resourceProvider.getString(R.string.news_body_empty)
         val safeBody = news ?: newsBodyEmpty
-        val haveBody = safeBody.isNotEmpty() && safeBody != newsBodyEmpty
+        val haveBody = safeBody.isNotEmpty() && safeBody != newsBodyEmpty && safeBody != errorNewsText
 
         notLoading && haveTitle && haveBody
     }
 
     val refreshButtonEnabled = _loading.map { !it }
+
+    private var lastValueChannel = 0
+    val fadeIn = copyButtonEnabled.map { Event(it) }
+    val fadeOut = _currentChannel.map {
+        val show = it != lastValueChannel
+        lastValueChannel = it
+        Event(show)
+    }
 
     fun beforeChannel() {
         var channel = _currentChannel.value?.minus(1) ?: 0
@@ -116,10 +127,7 @@ class NewsViewModel @Inject constructor(
     }
 
     private fun showErrorNews() {
-        showNews(
-            resourceProvider.getString(R.string.news_error_title),
-            resourceProvider.getString(R.string.news_error_body)
-        )
+        showNews(errorTitleText, errorNewsText)
     }
 
     private fun showNews(title: String, news: String) {

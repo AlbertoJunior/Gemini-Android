@@ -2,6 +2,7 @@ package albertojunior.setor0.app.noticias
 
 import albertojunior.setor0.app.noticias.databinding.ActivityMainBinding
 import albertojunior.setor0.app.noticias.interfaces.NavBarController
+import albertojunior.setor0.app.noticias.utils.ContextUtils
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -29,10 +30,12 @@ class MainActivity : AppCompatActivity(), NavBarController {
     }
 
     override fun hideBar() {
-        binding.navView.isVisible = false
+        if (binding.navView.isVisible)
+            ContextUtils.animateFadeInOut(this, false, binding.navView)
     }
 
     override fun showBar() {
-        binding.navView.isVisible = true
+        if (!binding.navView.isVisible)
+            ContextUtils.animateFadeInOut(this, true, binding.navView)
     }
 }
