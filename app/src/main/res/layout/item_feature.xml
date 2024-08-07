@@ -7,7 +7,7 @@
 
         <variable
             name="item"
-            type="albertojunior.setor0.app.noticias.data.model.news.News" />
+            type="albertojunior.setor0.app.noticias.data.model.features.FeatureView" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -15,45 +15,54 @@
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
         android:backgroundTint="?colorSecondaryContainer"
+        android:clipToPadding="true"
+        app:cardCornerRadius="8dp"
         app:cardElevation="4dp"
-        app:cardPreventCornerOverlap="true"
-        app:cardUseCompatPadding="false"
-        app:cardCornerRadius="4dp"
         app:contentPadding="12dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <ImageView
+                android:id="@+id/iv_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:src="@{item.icon}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/tv_district"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/ic_collections_bookmark_black_24dp" />
+
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv_district"
                 style="@style/TextAppearance.AppCompat.Medium"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@{item.district.name}"
+                android:text="@{item.title}"
                 android:textColor="?colorOnSecondaryContainer"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_icon"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Bairro" />
+                tools:text="Feature" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv_title"
                 style="@style/TextAppearance.AppCompat.Body1"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginVertical="4dp"
                 android:maxLines="1"
-                android:text="@{item.title}"
-                android:textAlignment="center"
+                android:text="@{item.description}"
                 android:textColor="?colorOnSecondaryContainer"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/tv_district"
+                app:layout_constraintStart_toStartOf="@id/tv_district"
                 app:layout_constraintTop_toBottomOf="@id/tv_district"
-                tools:text="Titulo" />
+                tools:text="Estabelecimento" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
-
 </layout>

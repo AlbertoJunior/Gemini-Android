@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@id/navigation_features">
 
     <fragment
         android:id="@+id/navigation_home"
@@ -36,10 +36,43 @@
         android:id="@+id/informationFragment"
         android:name="albertojunior.setor0.app.noticias.ui.information.InformationFragment"
         android:label="InformationFragment"
+        app:enterAnim="@anim/fade_in"
+        app:exitAnim="@anim/fade_out"
+        app:popEnterAnim="@anim/fade_in"
+        app:popExitAnim="@anim/fade_out"
         tools:layout="@layout/fragment_information">
 
         <argument
             android:name="news"
             app:argType="albertojunior.setor0.app.noticias.data.model.news.News" />
     </fragment>
+
+    <fragment
+        android:id="@+id/navigation_features"
+        android:name="albertojunior.setor0.app.noticias.ui.features.FeaturesFragment"
+        android:label="FeaturesFragment"
+        app:enterAnim="@anim/fade_in"
+        app:exitAnim="@anim/fade_out"
+        app:popEnterAnim="@anim/fade_in"
+        app:popExitAnim="@anim/fade_out"
+        tools:layout="@layout/fragment_features" />
+
+    <fragment
+        android:id="@+id/navigation_establishment"
+        android:name="albertojunior.setor0.app.establishment.ui.EstablishmentFragment"
+        android:label="EstablishmentFragment"
+        app:enterAnim="@anim/fade_in"
+        app:exitAnim="@anim/fade_out"
+        app:popEnterAnim="@anim/fade_in"
+        app:popExitAnim="@anim/fade_out"
+        tools:layout="@layout/fragment_establishment" />
+
+    <action
+        android:id="@+id/action_navigation_to_establishmentFragment"
+        app:destination="@id/navigation_establishment"
+        app:enterAnim="@anim/fade_in"
+        app:exitAnim="@anim/fade_out"
+        app:popEnterAnim="@anim/fade_in"
+        app:popExitAnim="@anim/fade_out" />
+
 </navigation>

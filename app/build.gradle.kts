@@ -61,6 +61,10 @@ secrets {
 }
 
 dependencies {
+    implementation(project(":establishment")) {
+        exclude(module = "com.google.code.gson:gson")
+    }
+
     implementation(libs.coreKtx)
     implementation(libs.appcompat)
     implementation(libs.material)
@@ -86,3 +90,5 @@ dependencies {
 kapt {
     correctErrorTypes = true
 }
+//ksp {
+//}

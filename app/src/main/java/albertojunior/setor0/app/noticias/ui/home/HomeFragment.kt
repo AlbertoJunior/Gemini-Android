@@ -1,9 +1,7 @@
 package albertojunior.setor0.app.noticias.ui.home
 
-import albertojunior.setor0.app.noticias.R
 import albertojunior.setor0.app.noticias.databinding.FragmentHomeBinding
 import albertojunior.setor0.app.noticias.utils.ContextUtils
-import albertojunior.setor0.app.noticias.utils.extension.hideNavBar
 import albertojunior.setor0.app.noticias.utils.extension.showNavBar
 import android.os.Bundle
 import android.view.LayoutInflater

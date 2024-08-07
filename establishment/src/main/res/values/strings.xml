@@ -1,0 +1,38 @@
+<resources>
+    <string name="districts">Bairros</string>
+    <string-array name="districts">
+        <item></item>
+        <item>Alfiran</item>
+        <item>Ameisen</item>
+        <item>Aranhas</item>
+        <item>Ptitsy</item>
+        <item>Tokojirami</item>
+        <item>Vyura</item>
+    </string-array>
+
+    <string name="establishment_size">Tamanho</string>
+    <string-array name="establishment_sizes">
+        <item></item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+
+    <string name="characteristic">Característica:</string>
+    <string name="good_traits">Traços bons:</string>
+    <string name="bad_traits">Traços ruins:</string>
+
+    <string name="information_district"><b>Bairro:</b> %1$s</string>
+    <string name="district"><b>Bairro:</b></string>
+    <string name="information_size"><b>Tamanho:</b> %1$d</string>
+    <string name="size"><b>Tamanho:</b></string>
+    <string name="information_type"><b>Tipo:</b> %1$s</string>
+    <string name="type"><b>Tipo:</b></string>
+    <string name="information_treasure"><b>Tesouro:</b> %1$d</string>
+    <string name="treasure"><b>Tesouro:</b></string>
+    <string name="generate">Gerar</string>
+    <string name="back">Voltar</string>
+</resources>

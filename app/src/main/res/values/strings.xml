@@ -3,6 +3,7 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Salvas</string>
     <string name="title_notifications">Notícias</string>
+    <string name="title_features">Funções</string>
 
     <!-- HOME -->
     <string name="home_body">Este aplicativo é uma ferramenta para criação de textos fictícios para o RPG de mesa <b>Setor 0 - O Submundo</b> e todos os textos apresentados aqui não devem ser utilizados em qualquer outro contexto que não seja de jogo.</string>
@@ -34,10 +35,10 @@
 
     <!-- INFORMATION -->
     <string name="information_back">Voltar</string>
-    <string name="information_district"><b>Bairro:</b> %1$s</string>
-    <string name="information_who"><b>Quem provocou:</b> %1$s</string>
-    <string name="information_what"><b>O que aconteceu:</b> %1$s</string>
-    <string name="information_when"><b>Quando foi:</b> %1$s</string>
-    <string name="information_how"><b>Como foi:</b> %1$s</string>
-    <string name="information_result"><b>Consequências:</b> %1$s</string>
+    <string name="information_district">Bairro: %1$s</string>
+    <string name="information_who">Quem provocou:\n\t%1$s</string>
+    <string name="information_what">O que aconteceu:\n\t%1$s</string>
+    <string name="information_when">Quando foi:\n\t%1$s</string>
+    <string name="information_how">Como foi:\n\t%1$s</string>
+    <string name="information_result">Consequências:\n\t%1$s</string>
 </resources>

@@ -7,6 +7,11 @@
         android:title="@string/title_home" />
 
     <item
+        android:id="@+id/navigation_features"
+        android:icon="@drawable/ic_collections_bookmark_black_24dp"
+        android:title="@string/title_features" />
+
+    <item
         android:id="@+id/navigation_news"
         android:icon="@drawable/ic_newspaper_black_24dp"
         android:title="@string/title_notifications" />

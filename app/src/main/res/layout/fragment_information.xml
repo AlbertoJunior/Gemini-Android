@@ -20,8 +20,13 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_margin="8dp"
+            android:animateLayoutChanges="true"
             android:backgroundTint="?colorSecondaryContainer"
+            android:clipToPadding="true"
             app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="false"
             app:contentPadding="8dp"
             app:layout_constraintBottom_toTopOf="@id/btn_back"
             app:layout_constraintEnd_toEndOf="parent"
@@ -77,7 +82,7 @@
                                 android:layout_marginTop="4dp"
                                 android:text="@{viewModel.newsWho}"
                                 android:textColor="?colorOnSecondaryContainer"
-                                tools:text="Quem provocou: sei la" />
+                                tools:text="Quem provocou:\n\tsei la" />
 
                             <TextView
                                 style="@style/TextAppearance.AppCompat.Small"
@@ -86,7 +91,7 @@
                                 android:layout_marginTop="4dp"
                                 android:text="@{viewModel.newsWhat}"
                                 android:textColor="?colorOnSecondaryContainer"
-                                tools:text="O que aconteceu: sei la" />
+                                tools:text="O que aconteceu:\n\tsei la" />
 
                             <TextView
                                 style="@style/TextAppearance.AppCompat.Small"
@@ -95,7 +100,7 @@
                                 android:layout_marginTop="4dp"
                                 android:text="@{viewModel.newsWhen}"
                                 android:textColor="?colorOnSecondaryContainer"
-                                tools:text="Quando foi: sei la" />
+                                tools:text="Quando foi:\n\tsei la" />
 
                             <TextView
                                 style="@style/TextAppearance.AppCompat.Small"
@@ -113,7 +118,7 @@
                                 android:layout_marginTop="4dp"
                                 android:text="@{viewModel.newsResult}"
                                 android:textColor="?colorOnSecondaryContainer"
-                                tools:text="Consequências: sei la" />
+                                tools:text="Consequências:\n\tsei la" />
                         </LinearLayout>
 
                         <com.google.android.material.divider.MaterialDivider
@@ -122,7 +127,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"
                             app:dividerColor="?colorOnSecondaryContainer"
-                            app:dividerInsetEnd="8dp"
+                            app:dividerInsetEnd="24dp"
                             app:dividerInsetStart="24dp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -132,8 +137,11 @@
                             android:id="@+id/ll_news"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="4dp"
                             android:layout_marginTop="8dp"
+                            android:background="@color/light"
                             android:orientation="vertical"
+                            android:paddingHorizontal="4dp"
                             android:paddingVertical="4dp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -149,6 +157,7 @@
                                 android:text="@{viewModel.news.title}"
                                 android:textAlignment="center"
                                 android:textColor="?colorOnSecondaryContainer"
+                                android:textStyle="bold"
                                 tools:text="Testando o tamanho da mensagem" />
 
                             <TextView
@@ -156,6 +165,7 @@
                                 style="@style/TextAppearance.AppCompat.Body1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="16dp"
                                 android:layout_marginVertical="4dp"
                                 android:paddingVertical="4dp"
                                 android:text="@{viewModel.news.body}"
@@ -175,9 +185,9 @@
                     app:dividerColor="?colorOnSecondaryContainer"
                     app:dividerInsetEnd="24dp"
                     app:dividerInsetStart="8dp"
+                    app:layout_constraintBottom_toTopOf="@id/container_buttons"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintBottom_toTopOf="@id/container_buttons" />
+                    app:layout_constraintStart_toStartOf="parent" />
 
                 <LinearLayout
                     android:id="@+id/container_buttons"
@@ -220,9 +230,9 @@
             style="@style/Widget.Material3.Button.TextButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
             android:onClickListener="@{() -> viewModel.back()}"
             android:text="@string/information_back"
-            android:textSize="14.0sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
