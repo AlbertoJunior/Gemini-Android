@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="albertojunior.setor0.app.noticias.ui.dashboard.DashboardViewModel" />
+            type="albertojunior.setor0.app.ui.dashboard.DashboardViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -9,11 +9,11 @@ plugins {
 }
 
 android {
-    namespace = "albertojunior.setor0.app.noticias"
+    namespace = "albertojunior.setor0.app"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "albertojunior.setor0.app.noticias"
+        applicationId = "albertojunior.setor0.app"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

@@ -7,7 +7,7 @@
 
         <variable
             name="item"
-            type="albertojunior.setor0.app.noticias.data.model.news.News" />
+            type="albertojunior.setor0.app.data.model.news.News" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
