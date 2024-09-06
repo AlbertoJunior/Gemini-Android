@@ -1,4 +1,4 @@
-package albertojunior.setor0.app.establishment.ui
+package albertojunior.setor0.app.establishment.ui.adapter
 
 import albertojunior.setor0.app.establishment.databinding.ItemEstablishmentBinding
 import android.view.LayoutInflater
@@ -18,16 +18,16 @@ internal class EstablishmentItemAdapter : ListAdapter<String, EstablishmentItemA
         parent: ViewGroup,
         viewType: Int
     ): ItemViewHolder {
-        ItemEstablishmentBinding.inflate(LayoutInflater.from(parent.context), parent, false).also {
-            return ItemViewHolder(it)
-        }
+        return ItemViewHolder(
+            ItemEstablishmentBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        )
     }
 
     override fun onBindViewHolder(
         holder: ItemViewHolder,
         position: Int
     ) {
-       holder.bind(currentList[position])
+        holder.bind(currentList[position])
     }
 
     class ItemViewHolder(private val binding: ItemEstablishmentBinding) : RecyclerView.ViewHolder(binding.root) {

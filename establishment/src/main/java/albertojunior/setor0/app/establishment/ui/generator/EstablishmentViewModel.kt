@@ -1,11 +1,12 @@
-package albertojunior.setor0.app.establishment.ui
+package albertojunior.setor0.app.establishment.ui.generator
 
-import albertojunior.setor0.app.establishment.EstablishmentGenerator
-import RandomUtils
 import albertojunior.setor0.app.establishment.R
 import albertojunior.setor0.app.establishment.data.model.Establishment
+import albertojunior.setor0.app.establishment.data.model.EstablishmentTraits
 import albertojunior.setor0.app.establishment.data.repository.DistrictRepository
+import albertojunior.setor0.app.establishment.use_case.EstablishmentGeneratorUseCase
 import albertojunior.setor0.app.establishment.utils.ContextUtils
+import albertojunior.setor0.app.establishment.utils.RandomUtils
 import android.content.Context
 import android.content.res.Resources
 import androidx.lifecycle.LiveData
@@ -13,10 +14,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.map
 import com.google.gson.GsonBuilder
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-internal class EstablishmentViewModel(
+@HiltViewModel
+internal class EstablishmentViewModel @Inject constructor(
     private val resourceProvider: Resources,
-    private val generator: EstablishmentGenerator = EstablishmentGenerator()
+    private val establishmentGeneratorUseCase: EstablishmentGeneratorUseCase
 ) : ViewModel() {
 
     private val _establishment = MutableLiveData<Establishment?>(null)
@@ -45,11 +49,11 @@ internal class EstablishmentViewModel(
     val characteristics = _establishment.map {
         it?.caracteristicas?.map { characteristic -> characteristic.toString() }?.sorted() ?: emptyList()
     }
-    val goodTraits = _establishment.map {
-        it?.tracosBons?.map { trait -> trait.name } ?: emptyList()
+    val goodTraits: LiveData<List<EstablishmentTraits>> = _establishment.map {
+        it?.tracosBons?.map { trait -> trait.copy() } ?: emptyList()
     }
-    val badTraits = _establishment.map {
-        it?.tracosRuins?.map { trait -> trait.name } ?: emptyList()
+    val badTraits: LiveData<List<EstablishmentTraits>> = _establishment.map {
+        it?.tracosRuins?.map { trait -> trait.copy() } ?: emptyList()
     }
 
     fun generate(
@@ -59,7 +63,7 @@ internal class EstablishmentViewModel(
         val sizeIntOrNull = size.takeIf { it?.isNotBlank() == true }?.toIntOrNull()?.takeIf { it != 0 }
         val selectedSize = sizeIntOrNull ?: RandomUtils.randomize(6, 1)
         val foundedDistrict = DistrictRepository.getAllDistricts().firstOrNull { it.name == district }
-        _establishment.value = generator.generate(selectedSize, foundedDistrict)
+        _establishment.value = establishmentGeneratorUseCase(selectedSize, foundedDistrict)
     }
 
     fun shareNews(context: Context) {

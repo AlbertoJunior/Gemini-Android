@@ -1,3 +1,5 @@
+package albertojunior.setor0.app.establishment.utils
+
 import java.math.BigInteger
 import java.security.SecureRandom
 import java.util.*

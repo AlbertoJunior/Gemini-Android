@@ -2,13 +2,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.EstablishmentFragment">
+    tools:context=".ui.generator.EstablishmentFragment">
 
     <data>
 
         <variable
             name="viewmodel"
-            type="albertojunior.setor0.app.establishment.ui.EstablishmentViewModel" />
+            type="albertojunior.setor0.app.establishment.ui.generator.EstablishmentViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -54,7 +54,6 @@
                     android:layout_marginVertical="4dp"
                     android:text="@{viewmodel.type}"
                     tools:text="Tipo:" />
-
 
                 <TextView
                     style="@style/TextAppearance.AppCompat.Medium"
@@ -195,7 +194,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="4dp"
-                    app:icon="@drawable/ic_lab_panel_black_24dp"
+                    app:icon="@drawable/ic_manufacturing_black_24px"
                     tools:text="Gerar" />
 
                 <com.google.android.material.button.MaterialButton

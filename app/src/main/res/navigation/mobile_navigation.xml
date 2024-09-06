@@ -59,7 +59,7 @@
 
     <fragment
         android:id="@+id/navigation_establishment"
-        android:name="albertojunior.setor0.app.establishment.ui.EstablishmentFragment"
+        android:name="albertojunior.setor0.app.establishment.ui.generator.EstablishmentFragment"
         android:label="EstablishmentFragment"
         app:enterAnim="@anim/fade_in"
         app:exitAnim="@anim/fade_out"

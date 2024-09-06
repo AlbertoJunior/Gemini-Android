@@ -61,17 +61,18 @@ secrets {
 }
 
 dependencies {
-    implementation(project(":establishment")) {
-        exclude(module = "com.google.code.gson:gson")
-    }
+    implementation(project(":design"))
+    implementation(project(":establishment"))
 
     implementation(libs.coreKtx)
     implementation(libs.appcompat)
     implementation(libs.material)
 
     implementation(libs.constraintlayout)
+
     implementation(libs.androidx.lifecycle.livedata.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
+
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
 
@@ -86,6 +87,7 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
+
 // Allow references to generated code
 kapt {
     correctErrorTypes = true

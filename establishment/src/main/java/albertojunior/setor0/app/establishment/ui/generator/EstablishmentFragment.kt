@@ -1,17 +1,23 @@
-package albertojunior.setor0.app.establishment.ui
+package albertojunior.setor0.app.establishment.ui.generator
 
+import albertojunior.setor0.app.establishment.data.model.EstablishmentTraits
 import albertojunior.setor0.app.establishment.databinding.FragmentEstablishmentBinding
+import albertojunior.setor0.app.establishment.ui.adapter.EstablishmentItemAdapter
+import albertojunior.setor0.app.establishment.ui.adapter.EstablishmentTraitItemAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class EstablishmentFragment : Fragment() {
     private lateinit var binding: FragmentEstablishmentBinding
-    private val viewModel by ViewModelDelegate<EstablishmentViewModel>(this)
+    private val viewModel: EstablishmentViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,17 +49,33 @@ class EstablishmentFragment : Fragment() {
     }
 
     private fun setupAdapters() {
-        setupAdapter(binding.rvCharacteristics, viewModel.characteristics)
-        setupAdapter(binding.rvGoodTraits, viewModel.goodTraits)
-        setupAdapter(binding.rvBadTraits, viewModel.badTraits)
+        setupCharacteristicAdapter(binding.rvCharacteristics, viewModel.characteristics)
+        setupTraitAdapter(binding.rvGoodTraits, viewModel.goodTraits)
+        setupTraitAdapter(binding.rvBadTraits, viewModel.badTraits)
     }
 
-    private fun setupAdapter(recycler: RecyclerView, data: LiveData<List<String>>) {
+    private fun setupCharacteristicAdapter(
+        recycler: RecyclerView,
+        data: LiveData<List<String>>
+    ) {
         val establishmentItemAdapter = EstablishmentItemAdapter()
         recycler.adapter = establishmentItemAdapter
         data.observe(viewLifecycleOwner) {
             establishmentItemAdapter.submitList(it)
             binding.btGenerate.isEnabled = true
+        }
+    }
+
+    private fun setupTraitAdapter(
+        recycler: RecyclerView,
+        data: LiveData<List<EstablishmentTraits>>
+    ) {
+        EstablishmentTraitItemAdapter().apply {
+            recycler.adapter = this
+            data.observe(viewLifecycleOwner) {
+                submitList(it)
+                binding.btGenerate.isEnabled = true
+            }
         }
     }
 }

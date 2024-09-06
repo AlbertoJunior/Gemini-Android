@@ -20,15 +20,15 @@ class FeaturesViewModel @Inject constructor(
     private val _featureClicked = MutableLiveData<Event<IdNavigation>>()
     val featureClicked: LiveData<Event<IdNavigation>> = _featureClicked
 
-    private val _hideNavBar = MutableLiveData<Boolean>()
-    val hideNavBar: LiveData<Boolean> = _hideNavBar
+    private val _hideNavBar = MutableLiveData<Event<Boolean>>()
+    val hideNavBar: LiveData<Event<Boolean>> = _hideNavBar
 
     fun fetchFeatures() {
         _features.value = Feature.values.map { it.toFeatureView(resources) }
     }
 
     fun onFeatureClick(feature: FeatureView) {
-        _hideNavBar.value = feature.hideNav
+        _hideNavBar.value = Event(feature.hideNav)
         _featureClicked.value = Event(feature.navigation)
     }
 }

@@ -1,6 +1,6 @@
 package albertojunior.setor0.app.noticias.utils
 
-import albertojunior.setor0.app.noticias.R
+import albertojunior.setor0.app.design.R
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context

@@ -1,4 +1,4 @@
-package albertojunior.setor0.app.establishment.data.model
+package albertojunior.setor0.app.establishment.data.enums
 
 enum class EstablishmentCharacteristic(val description: String) {
     CIBERSEGURANCA("Cibersegurança"),

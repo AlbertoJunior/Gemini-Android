@@ -1,4 +1,6 @@
-package albertojunior.setor0.app.establishment.data.model
+package albertojunior.setor0.app.establishment.data.enums
+
+import albertojunior.setor0.app.establishment.data.model.EstablishmentTraits
 
 enum class EstablishmentTypes(
     val description: String,
@@ -16,7 +18,11 @@ enum class EstablishmentTypes(
     ),
     CASSINO(
         "Cassino",
-        listOf(EstablishmentTraits.Good.FonteTesouro, EstablishmentTraits.Good.SegurancaMelhorada, EstablishmentTraits.Good.CibersegurancaMelhorada)
+        listOf(
+            EstablishmentTraits.Good.FonteTesouro,
+            EstablishmentTraits.Good.SegurancaMelhorada,
+            EstablishmentTraits.Good.CibersegurancaMelhorada
+        )
     ),
     CASSINO_PEQUENO("Cassino pequeno"),
     CONTAINER_PROSTITUICAO("Container de prostituição"),
@@ -54,15 +60,27 @@ enum class EstablishmentTypes(
     ),
     FABRICA_ARMAS(
         "Fábrica de armas de projeção",
-        listOf(EstablishmentTraits.Good.BemEquipado, EstablishmentTraits.Good.BemEnergizado, EstablishmentTraits.Good.SegurancaMelhorada)
+        listOf(
+            EstablishmentTraits.Good.BemEquipado,
+            EstablishmentTraits.Good.BemEnergizado,
+            EstablishmentTraits.Good.SegurancaMelhorada
+        )
     ),
     FABRICA_ARMAS_GRANDE(
         "Fábrica de armas de projeção grande",
-        listOf(EstablishmentTraits.Good.BemEquipado, EstablishmentTraits.Good.BemEnergizado, EstablishmentTraits.Good.SegurancaMelhorada)
+        listOf(
+            EstablishmentTraits.Good.BemEquipado,
+            EstablishmentTraits.Good.BemEnergizado,
+            EstablishmentTraits.Good.SegurancaMelhorada
+        )
     ),
     FABRICA_GRANDE(
         "Fábrica grande",
-        listOf(EstablishmentTraits.Good.BemEquipado, EstablishmentTraits.Good.BemEnergizado, EstablishmentTraits.Good.SegurancaMelhorada)
+        listOf(
+            EstablishmentTraits.Good.BemEquipado,
+            EstablishmentTraits.Good.BemEnergizado,
+            EstablishmentTraits.Good.SegurancaMelhorada
+        )
     ),
     FAVELA("Favela"),
     FERREIRO("Ferreiro"),

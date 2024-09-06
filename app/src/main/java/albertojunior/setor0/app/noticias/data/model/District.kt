@@ -16,7 +16,7 @@ data class District(
 ) : Parcelable {
 
     companion object {
-        val alfiran = District(
+        private val alfiran = District(
             "Alfiran",
             Region.OESTE,
             "guerras, brigas, produção de armas",
@@ -25,7 +25,7 @@ data class District(
             "Ptitsy",
             "Tokojirami"
         )
-        val ameisen = District(
+        private val ameisen = District(
             "Ameisen",
             Region.SUDESTE,
             "trabalho, fábricas, androides sexuais, prostituição",
@@ -34,7 +34,7 @@ data class District(
             "Aranhas",
             "Vyura"
         )
-        val ptitsy = District(
+        private val ptitsy = District(
             "Ptitsy",
             Region.NORTE,
             "inovações tecnológicas, como acessórios, proteses, dispositivos",
@@ -43,7 +43,7 @@ data class District(
             "Vyura",
             "Alfiran"
         )
-        val aranhas = District(
+        private val aranhas = District(
             "Aranhas",
             Region.SUL,
             "perseguições, cargas roubadas, casas de aposta",
@@ -52,7 +52,7 @@ data class District(
             "Tokojirami",
             "Ameisen"
         )
-        val tokojirami = District(
+        private val tokojirami = District(
             "Tokojirami",
             Region.SUDOESTE,
             "mafias brigando por território, comercio drogas, armas, peças proibidas",
@@ -61,7 +61,7 @@ data class District(
             "Alfiran",
             "Aranhas"
         )
-        val vyura = District(
+        private val vyura = District(
             "Vyura",
             Region.NORDESTE,
             "pesquisas científicas, desaparecimento",

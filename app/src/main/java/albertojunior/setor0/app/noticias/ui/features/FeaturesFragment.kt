@@ -54,9 +54,9 @@ class FeaturesFragment : Fragment() {
             EventObserver { navController.navigate(it.id) }
         )
 
-        viewModel.hideNavBar.observe(viewLifecycleOwner) {
+        viewModel.hideNavBar.observe(viewLifecycleOwner, EventObserver {
             if (it) hideNavBar()
-        }
+        })
 
         viewModel.fetchFeatures()
     }

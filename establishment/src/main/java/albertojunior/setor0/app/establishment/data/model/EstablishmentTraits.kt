@@ -1,17 +1,33 @@
 package albertojunior.setor0.app.establishment.data.model
 
+import albertojunior.setor0.app.establishment.data.enums.EstablishmentCharacteristic
+import java.util.UUID
+
 sealed class EstablishmentTraits(
     val name: String,
+    val generatedId: String
 ) {
 
     abstract fun onlyOne(): Boolean
 
+    abstract fun copy(): EstablishmentTraits
+
+    open fun prerequisites(): List<EstablishmentTraits> = emptyList()
+
     override fun toString() = name
 
-    abstract class Good(name: String) : EstablishmentTraits(name) {
-        open fun preferredCharacteristics(): List<EstablishmentCharacteristic> = emptyList()
+    abstract class Good(name: String, id: String = UUID.randomUUID().toString()) : EstablishmentTraits(name, id) {
+        override fun copy(): EstablishmentTraits {
+            return object : Good(name) {
+                override fun enableTrait() = this@Good.enableTrait()
 
-        open fun preReq(): List<EstablishmentTraits> = emptyList()
+                override fun preferredCharacteristics() = this@Good.preferredCharacteristics()
+
+                override fun onlyOne() = this@Good.onlyOne()
+            }
+        }
+
+        open fun preferredCharacteristics(): List<EstablishmentCharacteristic> = emptyList()
 
         open fun enableTrait(): List<Good> = emptyList()
 
@@ -91,7 +107,7 @@ sealed class EstablishmentTraits(
                     EstablishmentCharacteristic.CIBERSEGURANCA
                 )
 
-            override fun preReq() = listOf(BemEnergizado)
+            override fun prerequisites() = listOf(BemEnergizado)
         }
 
         object ProducaoConstante : Good("Produção Constante") {
@@ -101,7 +117,7 @@ sealed class EstablishmentTraits(
                     EstablishmentCharacteristic.SEGURANCA
                 )
 
-            override fun preReq() = listOf(BemEquipado)
+            override fun prerequisites() = listOf(BemEquipado)
             override fun onlyOne() = false
         }
 
@@ -128,14 +144,38 @@ sealed class EstablishmentTraits(
         }
     }
 
-    abstract class Bad(name: String) : EstablishmentTraits(name) {
+    abstract class Bad(name: String, id: String = UUID.randomUUID().toString()) : EstablishmentTraits(name, id) {
+        override fun copy(): EstablishmentTraits {
+            return object : Bad(name) {
+                override fun onlyOne() = this@Bad.onlyOne()
+                override fun prerequisites() = this@Bad.prerequisites()
+            }
+        }
+
         override fun onlyOne() = false
 
         object BlackoutsConstantes : Bad("Blackouts Constantes")
+
         object ControleGovernamental : Bad("Controle Governamental")
+
         object CriminalidadeAlta : Bad("Criminalidade Alta")
-        object DependenciaImportacoes : Bad("Dependência de Importações")
-        object Desperdicio : Bad("Desperdício")
+
+        object DependenciaImportacoes : Bad("Dependência de Importações") {
+            fun getValue(size: Int) = when (size) {
+                1 -> 1
+                2 -> 3
+                3 -> 4
+                4 -> 7
+                5 -> 8
+                6 -> 12
+                else -> 0
+            }
+        }
+
+        object Desperdicio : Bad("Desperdício") {
+            override fun prerequisites(): List<EstablishmentTraits> = listOf(Good.ProducaoConstante)
+        }
+
         object DificilDefender : Bad("Difícil de Defender")
 
         object Impostos : Bad("Impostos") {

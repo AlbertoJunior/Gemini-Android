@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.jetbrains)
     alias(libs.plugins.kotlin.kapt.jetbrains)
+    alias(libs.plugins.android.hilt)
 }
 
 android {
@@ -35,15 +36,24 @@ android {
 }
 
 dependencies {
-    implementation(libs.gson)
+    implementation(project(":design"))
 
     implementation(libs.coreKtx)
-    implementation(libs.constraintlayout)
     implementation(libs.appcompat)
     implementation(libs.material)
 
+    implementation(libs.constraintlayout)
+
     implementation(libs.androidx.lifecycle.livedata.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
+
+    implementation(libs.androidx.fragment.ktx)
+    implementation(libs.androidx.activity.ktx)
+
+    implementation(libs.gson)
+
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

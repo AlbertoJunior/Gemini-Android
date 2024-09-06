@@ -42,6 +42,6 @@ sealed class Feature(
         "Notícias",
         "Fique por dentro das últimas notícias do Setor 0",
         IdNavigation(RNav.navigation_news),
-        albertojunior.setor0.app.noticias.R.drawable.ic_newspaper_black_24dp,
+        albertojunior.setor0.app.design.R.drawable.ic_newspaper_black_24dp,
     )
 }

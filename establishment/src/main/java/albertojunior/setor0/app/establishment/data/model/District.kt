@@ -1,5 +1,8 @@
 package albertojunior.setor0.app.establishment.data.model
 
+import albertojunior.setor0.app.establishment.data.enums.EstablishmentCharacteristic
+import albertojunior.setor0.app.establishment.data.enums.EstablishmentTypes
+
 sealed class District(
     val name: String,
 ) {

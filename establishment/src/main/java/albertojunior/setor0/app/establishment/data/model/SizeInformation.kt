@@ -1,6 +1,9 @@
 package albertojunior.setor0.app.establishment.data.model
 
-sealed class SizeInformations(
+import albertojunior.setor0.app.establishment.data.enums.EstablishmentCharacteristic
+import albertojunior.setor0.app.establishment.data.enums.EstablishmentTypes
+
+sealed class SizeInformation(
     val characteristics: List<EstablishmentCharacteristic>,
     val characteristicsPoints: Int,
     val possibleGoodTraits: List<EstablishmentTraits.Good>,
@@ -10,7 +13,7 @@ sealed class SizeInformations(
     val possibleTypes: List<EstablishmentTypes>,
     val baseTreasure: Int
 ) {
-    private data object EstablishmentSize1 : SizeInformations(
+    private data object EstablishmentSize1 : SizeInformation(
         characteristics = EstablishmentCharacteristic.obtainCharacteristics(1),
         characteristicsPoints = 0,
         possibleGoodTraits = EstablishmentTraits.Good.traits.filterNot {
@@ -31,7 +34,7 @@ sealed class SizeInformations(
         baseTreasure = 2
     )
 
-    private data object EstablishmentSize2 : SizeInformations(
+    private data object EstablishmentSize2 : SizeInformation(
         characteristics = EstablishmentCharacteristic.obtainCharacteristics(2),
         characteristicsPoints = 1,
         possibleGoodTraits = EstablishmentTraits.Good.traits.filterNot { it == EstablishmentTraits.Good.Influencia },
@@ -49,10 +52,10 @@ sealed class SizeInformations(
             EstablishmentTypes.OFICINA,
             EstablishmentTypes.CASA_APOSTAS
         ),
-        baseTreasure = 5
+        baseTreasure = 6
     )
 
-    private data object EstablishmentSize3 : SizeInformations(
+    private data object EstablishmentSize3 : SizeInformation(
         characteristics = EstablishmentCharacteristic.obtainCharacteristics(3),
         characteristicsPoints = 3,
         possibleGoodTraits = EstablishmentTraits.Good.traits.filterNot { it == EstablishmentTraits.Good.Influencia },
@@ -68,10 +71,10 @@ sealed class SizeInformations(
             EstablishmentTypes.OFICINA_GRANDE,
             EstablishmentTypes.RADIO,
         ),
-        baseTreasure = 7
+        baseTreasure = 8
     )
 
-    private data object EstablishmentSize4 : SizeInformations(
+    private data object EstablishmentSize4 : SizeInformation(
         characteristics = EstablishmentCharacteristic.obtainCharacteristics(4),
         characteristicsPoints = 5,
         possibleGoodTraits = EstablishmentTraits.Good.traits,
@@ -79,10 +82,10 @@ sealed class SizeInformations(
         possibleBadTraits = EstablishmentTraits.Bad.traits,
         amountBadTraits = 2,
         possibleTypes = listOf(EstablishmentTypes.FABRICA, EstablishmentTypes.RADIO),
-        baseTreasure = 10
+        baseTreasure = 12
     )
 
-    private data object EstablishmentSize5 : SizeInformations(
+    private data object EstablishmentSize5 : SizeInformation(
         characteristics = EstablishmentCharacteristic.obtainCharacteristics(5),
         characteristicsPoints = 7,
         possibleGoodTraits = EstablishmentTraits.Good.traits,
@@ -90,10 +93,10 @@ sealed class SizeInformations(
         possibleBadTraits = EstablishmentTraits.Bad.traits,
         amountBadTraits = 3,
         possibleTypes = listOf(EstablishmentTypes.FABRICA_GRANDE, EstablishmentTypes.RADIO),
-        baseTreasure = 12
+        baseTreasure = 14
     )
 
-    private data object EstablishmentSize6 : SizeInformations(
+    private data object EstablishmentSize6 : SizeInformation(
         characteristics = EstablishmentCharacteristic.obtainCharacteristics(6),
         characteristicsPoints = 9,
         possibleGoodTraits = EstablishmentTraits.Good.traits,
@@ -101,11 +104,11 @@ sealed class SizeInformations(
         possibleBadTraits = EstablishmentTraits.Bad.traits,
         amountBadTraits = 5,
         possibleTypes = listOf(EstablishmentTypes.FAVELA),
-        baseTreasure = 15
+        baseTreasure = 20
     )
 
     companion object {
-        fun getSizeInfo(size: Int): SizeInformations {
+        fun getSizeInfo(size: Int): SizeInformation {
             return when (size) {
                 1 -> EstablishmentSize1
                 2 -> EstablishmentSize2

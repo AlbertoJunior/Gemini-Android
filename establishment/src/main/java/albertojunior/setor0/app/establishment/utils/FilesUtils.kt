@@ -1,10 +1,8 @@
 package albertojunior.setor0.app.establishment.utils
 
-import RandomUtils
-import albertojunior.setor0.app.establishment.EstablishmentGenerator
-import albertojunior.setor0.app.establishment.data.model.District
 import albertojunior.setor0.app.establishment.data.model.Establishment
 import albertojunior.setor0.app.establishment.data.repository.DistrictRepository
+import albertojunior.setor0.app.establishment.use_case.EstablishmentGeneratorUseCase
 import android.os.Build
 import androidx.annotation.RequiresApi
 import com.google.gson.GsonBuilder
@@ -16,7 +14,10 @@ object FilesUtils {
     @RequiresApi(Build.VERSION_CODES.O)
     private fun generateFiles() {
         for (i in 0..10) {
-            val establishment = EstablishmentGenerator().generate(RandomUtils.randomize(6, 1), District.ARANHAS)
+            val establishment = EstablishmentGeneratorUseCase.instance(
+                RandomUtils.randomize(6, 1),
+                DistrictRepository.getAllDistricts().random()
+            )
             val json = GsonBuilder()
                 .setPrettyPrinting()
                 .create()

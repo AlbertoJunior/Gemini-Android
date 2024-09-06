@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="albertojunior.setor0.app.establishment">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="albertojunior.setor0.app.establishment">
+
+    <application android:theme="@style/Theme.Setor0Notícias" />
 
 </manifest>
