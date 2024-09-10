@@ -1,6 +1,6 @@
 package albertojunior.setor0.app.establishment.data.enums
 
-enum class EstablishmentCharacteristic(val description: String) {
+internal enum class EstablishmentCharacteristic(val description: String) {
     CIBERSEGURANCA("Cibersegurança"),
     CLIENTES("Clientes"),
     ESTABELECIMENTOS("Estabelecimentos"),

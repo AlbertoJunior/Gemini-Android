@@ -2,7 +2,7 @@ package albertojunior.setor0.app.establishment.data.model
 
 import java.util.GregorianCalendar
 
-data class Establishment(
+internal data class Establishment(
     val bairro: String,
     val tamanho: Int,
     val caracteristicas: List<Characteristic>,

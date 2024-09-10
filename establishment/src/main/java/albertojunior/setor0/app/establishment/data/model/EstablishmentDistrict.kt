@@ -1,11 +1,15 @@
 package albertojunior.setor0.app.establishment.data.model
 
+import albertojunior.setor0.app.core.data.District
 import albertojunior.setor0.app.establishment.data.enums.EstablishmentCharacteristic
 import albertojunior.setor0.app.establishment.data.enums.EstablishmentTypes
 
-sealed class District(
-    val name: String,
+internal sealed class EstablishmentDistrict(
+    district: District
 ) {
+    val name = district.name
+    override fun toString() = name
+
     abstract fun typesBySize(size: Int): List<EstablishmentTypes>
 
     open fun commonCharacteristics(): List<EstablishmentCharacteristic> = emptyList()
@@ -16,9 +20,7 @@ sealed class District(
 
     fun getRandomizedPreferredCharacteristic() = commonCharacteristics().shuffled().take(1)[0]
 
-    override fun toString() = name
-
-    object ALFIRAN : District("Alfiran") {
+    object ALFIRAN : EstablishmentDistrict(District.ALFIRAN) {
         override fun commonCharacteristics() =
             listOf(
                 EstablishmentCharacteristic.SEGURANCA,
@@ -70,7 +72,7 @@ sealed class District(
             )
     }
 
-    object AMEISEN : District("Ameisen") {
+    object AMEISEN : EstablishmentDistrict(District.AMEISEN) {
         override fun commonCharacteristics() =
             listOf(
                 EstablishmentCharacteristic.CLIENTES,
@@ -121,7 +123,7 @@ sealed class District(
             )
     }
 
-    object ARANHAS : District("Aranhas") {
+    object ARANHAS : EstablishmentDistrict(District.ARANHAS) {
         override fun commonCharacteristics() =
             listOf(
                 EstablishmentCharacteristic.CLIENTES,
@@ -177,7 +179,7 @@ sealed class District(
             )
     }
 
-    object PTITSY : District("Ptitsy") {
+    object PTITSY : EstablishmentDistrict(District.PTITSY) {
         override fun commonCharacteristics() =
             listOf(
                 EstablishmentCharacteristic.ESTABELECIMENTOS,
@@ -229,7 +231,7 @@ sealed class District(
             )
     }
 
-    object TOKOJIRAMI : District("Tokojirami") {
+    object TOKOJIRAMI : EstablishmentDistrict(District.TOKOJIRAMI) {
         override fun commonCharacteristics() =
             listOf(
                 EstablishmentCharacteristic.CLIENTES,
@@ -288,7 +290,7 @@ sealed class District(
             )
     }
 
-    object VYURA : District("Vyura") {
+    object VYURA : EstablishmentDistrict(District.VYURA) {
         override fun commonCharacteristics() =
             listOf(
                 EstablishmentCharacteristic.INFRAESTRUTURA,

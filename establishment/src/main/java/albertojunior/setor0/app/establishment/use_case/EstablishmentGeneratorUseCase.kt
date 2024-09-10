@@ -1,6 +1,6 @@
 package albertojunior.setor0.app.establishment.use_case
 
-import albertojunior.setor0.app.establishment.data.model.District
+import albertojunior.setor0.app.establishment.data.model.EstablishmentDistrict
 import albertojunior.setor0.app.establishment.data.model.Establishment
 import albertojunior.setor0.app.establishment.data.model.EstablishmentTraits
 import albertojunior.setor0.app.establishment.data.enums.EstablishmentTypes
@@ -28,7 +28,7 @@ internal class EstablishmentGeneratorUseCase(
 
     operator fun invoke(
         size: Int,
-        district: District? = null
+        district: EstablishmentDistrict? = null
     ): Establishment {
         SizeInformation.getSizeInfo(size).also { information ->
             val selectedDistrict = district ?: takeShuffledByList(DistrictRepository.getAllDistricts())
@@ -79,7 +79,7 @@ internal class EstablishmentGeneratorUseCase(
     private fun selectGoodTraits(
         information: SizeInformation,
         type: EstablishmentTypes,
-        selectedDistrict: District
+        selectedDistrict: EstablishmentDistrict
     ): List<EstablishmentTraits.Good> {
         val possibleGoodTraits = mutableListOf<EstablishmentTraits.Good>()
             .apply {
@@ -97,7 +97,7 @@ internal class EstablishmentGeneratorUseCase(
 
     private fun selectBadTraits(
         information: SizeInformation,
-        selectedDistrict: District,
+        selectedDistrict: EstablishmentDistrict,
         selectGoodTraits: List<EstablishmentTraits.Good>
     ): List<EstablishmentTraits.Bad> {
         val possibleBadTraits = mutableListOf<EstablishmentTraits.Bad>()

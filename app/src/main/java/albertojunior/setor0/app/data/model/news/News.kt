@@ -1,6 +1,6 @@
 package albertojunior.setor0.app.data.model.news
 
-import albertojunior.setor0.app.data.model.District
+import albertojunior.setor0.app.core.data.District
 import albertojunior.setor0.app.data.model.coreinformation.CoreInformationNews
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

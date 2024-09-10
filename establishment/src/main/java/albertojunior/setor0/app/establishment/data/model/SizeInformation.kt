@@ -3,7 +3,7 @@ package albertojunior.setor0.app.establishment.data.model
 import albertojunior.setor0.app.establishment.data.enums.EstablishmentCharacteristic
 import albertojunior.setor0.app.establishment.data.enums.EstablishmentTypes
 
-sealed class SizeInformation(
+internal sealed class SizeInformation(
     val characteristics: List<EstablishmentCharacteristic>,
     val characteristicsPoints: Int,
     val possibleGoodTraits: List<EstablishmentTraits.Good>,

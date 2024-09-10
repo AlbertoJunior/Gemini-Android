@@ -3,7 +3,7 @@ package albertojunior.setor0.app.establishment.data.model
 import albertojunior.setor0.app.establishment.data.enums.EstablishmentCharacteristic
 import java.util.UUID
 
-sealed class EstablishmentTraits(
+internal sealed class EstablishmentTraits(
     val name: String,
     val generatedId: String
 ) {

@@ -1,12 +1,11 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.jetbrains)
-    alias(libs.plugins.kotlin.kapt.jetbrains)
-    alias(libs.plugins.android.hilt)
+    alias(libs.plugins.kotlin.parcelize)
 }
 
 android {
-    namespace = "albertojunior.setor0.app.establishment"
+    namespace = "albertojunior.setor0.app.core"
     compileSdk = 34
 
     defaultConfig {
@@ -17,6 +16,7 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         debug {
             isMinifyEnabled = false
@@ -29,32 +29,12 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    buildFeatures {
-        viewBinding = true
-        dataBinding = true
-    }
 }
 
 dependencies {
-    implementation(project(":core"))
-    implementation(project(":design"))
-
     implementation(libs.coreKtx)
     implementation(libs.appcompat)
     implementation(libs.material)
-
-    implementation(libs.constraintlayout)
-
-    implementation(libs.androidx.lifecycle.livedata.ktx)
-    implementation(libs.androidx.lifecycle.viewmodel.ktx)
-
-    implementation(libs.androidx.fragment.ktx)
-    implementation(libs.androidx.activity.ktx)
-
-    implementation(libs.gson)
-
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.android.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

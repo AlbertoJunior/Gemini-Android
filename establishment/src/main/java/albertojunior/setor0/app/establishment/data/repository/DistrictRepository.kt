@@ -1,16 +1,16 @@
 package albertojunior.setor0.app.establishment.data.repository
 
-import albertojunior.setor0.app.establishment.data.model.District
+import albertojunior.setor0.app.establishment.data.model.EstablishmentDistrict
 
-class DistrictRepository {
+internal class DistrictRepository {
     companion object {
         private val all = listOf(
-            District.ALFIRAN,
-            District.AMEISEN,
-            District.ARANHAS,
-            District.PTITSY,
-            District.TOKOJIRAMI,
-            District.VYURA,
+            EstablishmentDistrict.ALFIRAN,
+            EstablishmentDistrict.AMEISEN,
+            EstablishmentDistrict.ARANHAS,
+            EstablishmentDistrict.PTITSY,
+            EstablishmentDistrict.TOKOJIRAMI,
+            EstablishmentDistrict.VYURA,
         )
 
         fun getAllDistricts() = all

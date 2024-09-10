@@ -3,7 +3,7 @@ package albertojunior.setor0.app.ui.news
 import albertojunior.setor0.app.R
 import albertojunior.setor0.app.ai.prompter.PromptCoreInformationNews
 import albertojunior.setor0.app.ai.prompter.PromptDistrictNews
-import albertojunior.setor0.app.data.model.District
+import albertojunior.setor0.app.core.data.District
 import albertojunior.setor0.app.data.model.coreinformation.CoreInformationNewsConverter
 import albertojunior.setor0.app.data.model.news.News
 import albertojunior.setor0.app.data.model.news.NewsConverter

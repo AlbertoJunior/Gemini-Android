@@ -2,7 +2,7 @@ package albertojunior.setor0.app.establishment.data.enums
 
 import albertojunior.setor0.app.establishment.data.model.EstablishmentTraits
 
-enum class EstablishmentTypes(
+internal enum class EstablishmentTypes(
     val description: String,
     val preferredGoodTraits: List<EstablishmentTraits.Good> = emptyList()
 ) {

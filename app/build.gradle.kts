@@ -69,6 +69,7 @@ secrets {
 }
 
 dependencies {
+    implementation(project(":core"))
     implementation(project(":design"))
     implementation(project(":establishment"))
 
