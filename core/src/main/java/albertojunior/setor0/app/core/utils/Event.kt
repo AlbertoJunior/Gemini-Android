@@ -1,4 +1,4 @@
-package albertojunior.setor0.app.utils
+package albertojunior.setor0.app.core.utils
 
 import androidx.lifecycle.Observer
 

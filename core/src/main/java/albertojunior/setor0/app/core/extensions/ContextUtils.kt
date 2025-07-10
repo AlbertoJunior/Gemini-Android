@@ -1,4 +1,4 @@
-package albertojunior.setor0.app.establishment.utils
+package albertojunior.setor0.app.core.extensions
 
 import android.content.ClipData
 import android.content.ClipboardManager

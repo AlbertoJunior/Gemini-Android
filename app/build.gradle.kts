@@ -11,12 +11,12 @@ plugins {
 
 android {
     namespace = "albertojunior.setor0.app"
-    compileSdk = 34
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "albertojunior.setor0.app"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
@@ -49,7 +49,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
+        kotlinCompilerExtensionVersion = "1.5.15"
     }
 }
 

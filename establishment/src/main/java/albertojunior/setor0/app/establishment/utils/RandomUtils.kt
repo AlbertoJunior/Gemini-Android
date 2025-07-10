@@ -4,7 +4,7 @@ import java.math.BigInteger
 import java.security.SecureRandom
 import java.util.*
 
-object RandomUtils {
+internal object RandomUtils {
     private val seed = BigInteger(1, SecureRandom().generateSeed(64))
     private val random = Random(seed.toLong())
 

@@ -2,4 +2,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="albertojunior.setor0.app.core">
 
+    <application android:theme="@style/Theme.Setor0Notícias" />
 </manifest>

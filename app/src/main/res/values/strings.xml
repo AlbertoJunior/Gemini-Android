@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Setor 0 - Notícias</string>
+    <string name="app_name">Setor 0</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Salvas</string>
     <string name="title_notifications">Notícias</string>
@@ -23,15 +23,6 @@
 
     <!-- DASHBAORD -->
     <string name="district">Bairro</string>
-    <string-array name="districts">
-        <item></item>
-        <item>Alfiran</item>
-        <item>Ameisen</item>
-        <item>Aranhas</item>
-        <item>Ptitsy</item>
-        <item>Tokojirami</item>
-        <item>Vyura</item>
-    </string-array>
 
     <!-- INFORMATION -->
     <string name="information_back">Voltar</string>

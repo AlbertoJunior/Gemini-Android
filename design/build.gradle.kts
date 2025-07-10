@@ -6,10 +6,13 @@ plugins {
 
 android {
     namespace = "albertojunior.setor0.app.design"
-    compileSdk = 34
+    compileSdk = 36
 
     defaultConfig {
         minSdk = 24
+        testOptions {
+            targetSdk = 36
+        }
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -31,7 +34,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
+        kotlinCompilerExtensionVersion = "1.5.15"
     }
 }
 

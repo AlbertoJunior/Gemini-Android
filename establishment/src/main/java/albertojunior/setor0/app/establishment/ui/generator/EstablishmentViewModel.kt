@@ -1,11 +1,11 @@
 package albertojunior.setor0.app.establishment.ui.generator
 
+import albertojunior.setor0.app.core.extensions.ContextUtils
 import albertojunior.setor0.app.establishment.R
 import albertojunior.setor0.app.establishment.data.model.Establishment
 import albertojunior.setor0.app.establishment.data.model.EstablishmentTraits
 import albertojunior.setor0.app.establishment.data.repository.DistrictRepository
 import albertojunior.setor0.app.establishment.use_case.EstablishmentGeneratorUseCase
-import albertojunior.setor0.app.establishment.utils.ContextUtils
 import albertojunior.setor0.app.establishment.utils.RandomUtils
 import android.content.Context
 import android.content.res.Resources

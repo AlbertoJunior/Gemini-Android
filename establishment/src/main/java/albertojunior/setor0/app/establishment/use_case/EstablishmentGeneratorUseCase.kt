@@ -1,6 +1,6 @@
 package albertojunior.setor0.app.establishment.use_case
 
-import albertojunior.setor0.app.establishment.data.model.EstablishmentDistrict
+import albertojunior.setor0.app.establishment.data.model.districts.EstablishmentDistrict
 import albertojunior.setor0.app.establishment.data.model.Establishment
 import albertojunior.setor0.app.establishment.data.model.EstablishmentTraits
 import albertojunior.setor0.app.establishment.data.enums.EstablishmentTypes

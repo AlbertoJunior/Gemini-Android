@@ -1,4 +1,4 @@
-package albertojunior.setor0.app.utils.extension
+package albertojunior.setor0.app.core.extensions
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData

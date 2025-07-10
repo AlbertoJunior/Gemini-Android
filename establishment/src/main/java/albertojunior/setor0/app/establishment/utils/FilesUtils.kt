@@ -10,7 +10,7 @@ import java.io.File
 import java.nio.file.Files
 import java.util.GregorianCalendar
 
-object FilesUtils {
+internal object FilesUtils {
     @RequiresApi(Build.VERSION_CODES.O)
     private fun generateFiles() {
         for (i in 0..10) {

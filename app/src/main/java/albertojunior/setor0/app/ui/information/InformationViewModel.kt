@@ -1,9 +1,9 @@
 package albertojunior.setor0.app.ui.information
 
 import albertojunior.setor0.app.R
+import albertojunior.setor0.app.core.extensions.ContextUtils
 import albertojunior.setor0.app.data.model.news.News
 import albertojunior.setor0.app.data.repository.NewsRepository
-import albertojunior.setor0.app.utils.ContextUtils
 import android.content.Context
 import android.content.res.Resources
 import androidx.lifecycle.LiveData

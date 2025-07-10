@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace = "albertojunior.setor0.app.core"
-    compileSdk = 34
+    compileSdk = 36
 
     defaultConfig {
         minSdk = 24
         testOptions {
-            targetSdk = 34
+            targetSdk = 36
         }
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"

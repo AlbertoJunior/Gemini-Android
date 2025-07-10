@@ -2,7 +2,7 @@ package albertojunior.setor0.app.ui.features
 
 import albertojunior.setor0.app.data.model.features.Feature
 import albertojunior.setor0.app.data.model.features.FeatureView
-import albertojunior.setor0.app.utils.Event
+import albertojunior.setor0.app.core.utils.Event
 import android.content.res.Resources
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -2,7 +2,7 @@ package albertojunior.setor0.app.ui.features
 
 import albertojunior.setor0.app.databinding.FragmentFeaturesBinding
 import albertojunior.setor0.app.ui.features.adapter.FeaturesAdapter
-import albertojunior.setor0.app.utils.EventObserver
+import albertojunior.setor0.app.core.utils.EventObserver
 import albertojunior.setor0.app.utils.extension.hideNavBar
 import albertojunior.setor0.app.utils.extension.showNavBar
 import android.os.Bundle

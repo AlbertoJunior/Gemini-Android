@@ -2,7 +2,7 @@ package albertojunior.setor0.app.ui.news
 
 import albertojunior.setor0.app.databinding.FragmentNewsBinding
 import albertojunior.setor0.app.utils.ContextUtils
-import albertojunior.setor0.app.utils.EventObserver
+import albertojunior.setor0.app.core.utils.EventObserver
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
